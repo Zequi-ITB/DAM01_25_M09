@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nom del Projecte</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -13,30 +13,41 @@
         <nav>
             <a href="#sobre">Sobre</a>
             <a href="#caracteristiques">Característiques</a>
+            <a href="#dom">DOM</a>
             <a href="#contacte">Contacte</a>
         </nav>
     </header>
 
-    <section id="sobre">
+    <section id="sobre" class="card">
         <h2>Sobre el projecte</h2>
         <p>
-            Descripció breu del projecte. Explica què fa, per què existeix i a qui va dirigit.
+            Aquesta és una plantilla web colorida, perfecta per mostrar informació bàsica
+            d’un repositori de GitHub.
         </p>
     </section>
 
-    <section id="caracteristiques">
+    <section id="caracteristiques" class="card">
         <h2>Característiques</h2>
         <ul>
-            <li>Característica 1</li>
-            <li>Característica 2</li>
-            <li>Característica 3</li>
+            <li>Disseny modern i colorit</li>
+            <li>Navegació clara i responsive</li>
+            <li>Enllaç directe a la carpeta <strong>dom</strong></li>
         </ul>
     </section>
 
-    <section id="contacte">
+    <section id="dom" class="card">
+        <h2>Accés a la carpeta "dom"</h2>
+        <p>
+            Pots veure els arxius de la carpeta aquí:
+        </p>
+        <a class="button" href="dom/" target="_blank">Obrir carpeta DOM</a>
+    </section>
+
+    <section id="contacte" class="card">
         <h2>Contacte</h2>
         <p>
-            Pots trobar el repositori aquí:  
+            Repositori del projecte:
+            <br>
             <a href="https://github.com/usuari/nom-repositori" target="_blank">
                 GitHub del projecte
             </a>
