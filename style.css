@@ -1,73 +1,101 @@
-/* Colors vius */
 :root {
-    --primary: #3b93ce;
-    --secondary: #4ecdc4;
-    --accent: #ffd93d;
-    --dark: #1a1a2e;
-    --light: #f7f7f7;
+    --color-principal: #1b5ca1; /* Blau de marca */
+    --color-principal-fosc: #0056b3;
+    --color-fons: #f4f7f9;
+    --color-card-fons: white;
+    --color-text: #333;
 }
 
+/* Estils Generals */
 body {
-    font-family: "Segoe UI", sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: var(--light);
-    color: var(--dark);
+    background-color: var(--color-fons);
+    color: var(--color-text);
 }
 
-header {
-    background: var(--primary);
+/* Capçalera */
+.main-header {
+    background: var(--color-principal);
     color: white;
-    padding: 25px;
+    padding: 40px 20px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-nav a {
-    margin: 0 15px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: var(--accent);
-}
-
-.card {
-    background: white;
+.container {
+    max-width: 1200px;
     margin: 30px auto;
-    padding: 30px;
-    max-width: 900px;
-    border-radius: 12px;
-    border-left: 10px solid var(--secondary);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 0 20px;
 }
 
-.card h2 {
-    color: var(--primary);
-}
-
-.button {
-    display: inline-block;
-    background: var(--secondary);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.button:hover {
-    background: var(--accent);
-    color: var(--dark);
-}
-
-footer {
-    background: var(--dark);
-    color: white;
+.section-title {
+    color: var(--color-principal-fosc);
+    margin-bottom: 25px;
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+}
+
+/* 🧱 Disseny de la Graella de Targetes (CSS Grid) */
+.card-grid {
+    display: grid;
+    /* Defineix 3 columnes si hi ha espai, sinó s'adapta */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* 🃏 Estil de la Targeta (Card) */
+.card {
+    text-decoration: none; /* Treure el subratllat de l'enllaç */
+    background-color: var(--color-card-fons);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-text);
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efecte 3D a l'apuntar */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--color-principal);
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+/* Estil per als caràcters especials com a icones */
+.card-icon span {
+    display: inline-block;
+    border: 2px solid var(--color-principal);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 46px; /* Ajustar el text al centre vertical */
+}
+
+.card h3 {
+    margin-top: 0;
+    color: var(--color-principal-fosc);
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Peu de Pàgina */
+.main-footer {
+    text-align: center;
+    padding: 15px;
+    background-color: var(--color-principal);
+    color: white;
+    margin-top: 50px;
 }
