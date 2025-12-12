@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <h1 id="titulo">Título original</h1>
+    <p id="texto">Texto original</p>
+
+    <div id="contenedor">
+        <img src="images.jpeg" alt="">
+        <p id="descripcion">Metal Gear Solid</p>
+    </div>
+    <script>
+        document.querySelector("img").src = "images2.jpeg";
+        document.getElementById("descripcion").textContent = "Imagen actualizada";
+    </script>
+</body>
+
+</html>

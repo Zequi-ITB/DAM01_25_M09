@@ -1,0 +1,21 @@
+document.getElementById("titular").textContent ="TITULAR DRAMATICO!!!";
+document.getElementById("autor").textContent ="Ezequiel Carracedo";
+document.getElementById("cuerpo-noticia").textContent ="Esta es la nueva noticia locasdlkgjsogsdflgndflgmdflkvmfdlmflvmdflkvdflkvmrlkdflbkvmdflvbkkmdflkdfmlkdfmvlkdfmvlxdfvblkdfblfxnlglgmlsdfgmsflkgmlsdfkgmlkfg";
+document.getElementById("input-comentario").value ='Ezequiel Carracedo';
+
+let article = document.createElement("article");
+article.innerHTML=  "<h1 id='titular'>El mercado bursátil se mantiene estable</h1> <p class='meta'>Publicado por: <span id='autor'>Juan Pérez</span></p>
+        <p id='cuerpo-noticia'>Los expertos dicen que no habrá cambios significativos hoy. Todo sigue igual.</p>
+
+        <div style='margin-top: 20px; border: 1px solid #ccc; padding: 10px;'>
+            <h3>Zona de Comentarios</h3>
+            <input type='text' id='input-comentario' value='Escribe aquí tu opinión respetuosa...' size='50'>
+            <button>Enviar (No funciona aún)</button>
+        </div>"
+
+document.body.append(article);
+
+
+
+
+
