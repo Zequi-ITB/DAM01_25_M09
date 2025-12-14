@@ -1,101 +1,221 @@
+/* VARIABLES DE COLORS */
 :root {
-    --color-principal: #1b5ca1; /* Blau de marca */
-    --color-principal-fosc: #0056b3;
-    --color-fons: #f4f7f9;
-    --color-card-fons: white;
-    --color-text: #333;
+    --color-primary: #1976D2; /* Blau fosc per textos i fons */
+    --color-secondary: #FF9800; /* Taronja per destacar */
+    --color-background: #FFFFFF; /* Fons blanc */
+    --color-text: #333333; /* Gris fosc per text general */
+    --color-light-gray: #f4f4f4; /* Gris molt clar per separat */
 }
 
-/* Estils Generals */
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    line-height: 1.6;
+/* ESTILS GENERALS I TIPOGRAFIA */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: var(--color-fons);
-    color: var(--color-text);
 }
 
-/* Capçalera */
-.main-header {
-    background: var(--color-principal);
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
 }
 
 .container {
     max-width: 1200px;
-    margin: 30px auto;
+    margin: 40px auto;
     padding: 0 20px;
-}
-
-.section-title {
-    color: var(--color-principal-fosc);
-    margin-bottom: 25px;
-    text-align: center;
-}
-
-/* 🧱 Disseny de la Graella de Targetes (CSS Grid) */
-.card-grid {
     display: grid;
-    /* Defineix 3 columnes si hi ha espai, sinó s'adapta */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Disseny de reixeta per les cards, 2 columnes per defecte */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px;
-    padding: 20px 0;
 }
 
-/* 🃏 Estil de la Targeta (Card) */
-.card {
-    text-decoration: none; /* Treure el subratllat de l'enllaç */
-    background-color: var(--color-card-fons);
+/* ENCAPÇALAMENT */
+header {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.8em;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+header h2 {
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.author-info {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+/* ESTIL DE LES CARDS (TREBALLS) */
+.work-card {
+    background-color: var(--color-background);
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    padding: 25px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    color: var(--color-text);
 }
 
-.card:hover {
-    transform: translateY(-5px); /* Efecte 3D a l'apuntar */
+.work-card:hover {
+    transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.card-icon {
-    font-size: 2.5rem;
-    color: var(--color-principal);
-    margin-bottom: 15px;
+.card-image-container {
+    position: relative;
+    height: 200px; /* Alçada fixa per a la imatge */
+}
+
+.card-image {
     width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assegura que la imatge cobreix l'espai */
+}
+
+.block-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 700;
+    color: var(--color-background);
+    text-transform: uppercase;
+}
+
+.m04 {
+    background-color: var(--color-primary); /* Blau per M04 */
+}
+
+.m09 {
+    background-color: var(--color-secondary); /* Taronja per M09 */
+}
+
+.card-content {
+    padding: 20px;
+    flex-grow: 1; /* Permet que el contingut s'estiri */
+}
+
+.card-content h3 {
+    color: var(--color-primary); /* Títol en blau */
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.card-content h4 {
+    color: var(--color-secondary); /* Subtítol en taronja */
+    font-size: 1em;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.description {
+    margin-bottom: 15px;
+    font-size: 0.95em;
+}
+
+.exercise-list {
+    list-style: none;
+    padding: 0;
+    border-top: 1px solid var(--color-light-gray);
+    padding-top: 15px;
+}
+
+.exercise-list li {
+    margin-bottom: 8px;
+}
+
+.exercise-list a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block; /* Ocupa tot l'espai per a un clic fàcil */
+}
+
+.exercise-list a:hover {
+    color: var(--color-secondary); /* Taronja al passar el ratolí */
+    text-decoration: underline;
+}
+
+/* PEU DE LA CARD */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: var(--color-light-gray);
+    border-top: 1px solid #ddd;
+}
+
+.footer-link {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.primary-link {
+    color: var(--color-primary);
+}
+
+.secondary-link {
+    color: var(--color-secondary);
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* PEU DE PÀGINA GENERAL */
+footer {
     text-align: center;
-}
-/* Estil per als caràcters especials com a icones */
-.card-icon span {
-    display: inline-block;
-    border: 2px solid var(--color-principal);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    line-height: 46px; /* Ajustar el text al centre vertical */
+    padding: 20px 0;
+    background-color: var(--color-text); /* Fons fosc per contrast */
+    color: var(--color-light-gray);
+    margin-top: 40px;
+    font-size: 0.9em;
 }
 
-.card h3 {
-    margin-top: 0;
-    color: var(--color-principal-fosc);
+footer a {
+    color: var(--color-secondary);
+    text-decoration: none;
 }
 
-.card p {
-    font-size: 0.95rem;
-    color: #555;
+footer a:hover {
+    text-decoration: underline;
 }
 
-/* Peu de Pàgina */
-.main-footer {
-    text-align: center;
-    padding: 15px;
-    background-color: var(--color-principal);
-    color: white;
-    margin-top: 50px;
+.copyright {
+    margin-top: 5px;
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+/* RESPONSIVE: Ajusta el disseny per a pantalles més petites */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Una columna en mòbils */
+        margin: 20px auto;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+    
+    header h2 {
+        font-size: 1em;
+    }
 }

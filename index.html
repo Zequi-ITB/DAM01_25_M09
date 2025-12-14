@@ -1,70 +1,62 @@
 <!DOCTYPE html>
 <html lang="ca">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M04: Índex de Temes</title>
+    <title>JavaScript - Portfoli ITB</title>
     <link rel="stylesheet" href="style.css">
-    </head>
-<body>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
 
-    <header class="main-header">
-        <h1>M04 - Llenguatge de Marques i Estils</h1>
-        <p>Selecciona una unitat temàtica per accedir a la documentació i els projectes.</p>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>JavaScript</h1>
+            <h2>M04 i M09 de DAM01 en el ITB amb Alicia Vázquez</h2>
+            <p class="author-info">Codi realitzat per **Ezequiel Carracedo**</p>
+        </div>
     </header>
 
     <main class="container">
-        
-        <h2 class="section-title">Unitats del Mòdul</h2>
-
-        <div class="card-grid">
-            
-            <a href="html_semantica.html" class="card">
-                <div class="card-icon">
-                    <span>&lt;/&gt;</span> 
-                    </div>
-                <div class="card-content">
-                    <h3>Tema 1: HTML5 Semàntic</h3>
-                    <p>Estructura, accessibilitat i ús correcte de les etiquetes de marques modernes.</p>
-                </div>
-            </a>
-
-            <a href="css_basica.html" class="card">
-                <div class="card-icon">
-                    <span>#</span>
-                    </div>
-                <div class="card-content">
-                    <h3>Tema 2: CSS3 i Selectors</h3>
-                    <p>Estils bàsics, cascada, especificitat i models de colors.</p>
-                </div>
-            </a>
-
-            <a href="maquetacio_avancada.html" class="card">
-                <div class="card-icon">
-                    <span>▦</span>
-                    </div>
-                <div class="card-content">
-                    <h3>Tema 3: Maquetació Responsive</h3>
-                    <p>Flexbox, CSS Grid i Media Queries per a dissenys adaptatius.</p>
-                </div>
-            </a>
-
-            <a href="projectes.html" class="card">
-                <div class="card-icon">
-                    <span>⭐</span>
-                    </div>
-                <div class="card-content">
-                    <h3>Projectes i Exercicis</h3>
-                    <p>Enllaços directes als exercicis avaluables i projectes d'integració.</p>
-                </div>
-            </a>
-            
+        <article class="work-card">
+            <div class="card-image-container">
+                <img src="src/dom_card.jpg" class="card-image">
+                <span class="block-tag m04">M04</span>
             </div>
+
+            <div class="card-content">
+                <h3>JavaScript
+
+                </h3>
+                <h4>Document Object Model</h4>
+                <p class="description">
+                    El <strong>Document Object Model (DOM)</strong> és la interfície que permet a JavaScript accedir i modificar el
+                    contingut i l'estructura d'una pàgina HTML. Aquesta unitat se centra en la selecció d'elements, la
+                    modificació d'atributs i estils, i la gestió d'esdeveniments per crear interactivitat web.
+                </p>
+                <ul class="exercise-list">
+                    <li><a href="Javascript/Exercici1.html" target="_blank">Exercici 1</a></li>
+                    <li><a href="" target="_blank">Exercici 2</a></li>
+                    <li><a href="#" target="_blank">Exercici 3</a></li>
+                </ul>
+            </div>
+
+            <div class="card-footer">
+                <a href="https://docs.google.com/presentation/d/1qasE7UtIEEQmP7Zwumoj9qRlEvXJPfsF8s2o6eDj2DQ/edit?usp=sharing"
+                    target="_blank" class="footer-link primary-link">Apuntes de Classe</a>
+                <a href="https://github.com/Zequi-ITB/DAM01_25_M09" target="_blank"
+                    class="footer-link secondary-link">Repositori Git</a>
+            </div>
+        </article>
     </main>
 
-    <footer class="main-footer">
-        <p>M04 | Desenvolupament Web Client &copy; 2025</p>
+    <footer>
+        <p class="contact-info">
+            Contacte Programador: <a href="mailto:pepe.garcia@example.com">ezequiel.carracedo.7e9@itb.cat</a>
+        </p>
+        <p class="copyright">&copy; 2025 CC. Tots els drets reservats.</p>
     </footer>
-
 </body>
+
 </html>
