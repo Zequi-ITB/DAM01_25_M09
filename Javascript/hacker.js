@@ -1,19 +1,36 @@
-document.getElementById("titular").textContent ="TITULAR DRAMATICO!!!";
-document.getElementById("autor").textContent ="Ezequiel Carracedo";
-document.getElementById("cuerpo-noticia").textContent ="Esta es la nueva noticia locasdlkgjsogsdflgndflgmdflkvmfdlmflvmdflkvdflkvmrlkdflbkvmdflvbkkmdflkdfmlkdfmvlkdfmvlxdfvblkdfblfxnlglgmlsdfgmsflkgmlsdfkgmlkfg";
-document.getElementById("input-comentario").value ='Ezequiel Carracedo';
 
-let article = document.createElement("article");
-article.innerHTML=  "<h1 id='titular'>El mercado bursátil se mantiene estable</h1> <p class='meta'>Publicado por: <span id='autor'>Juan Pérez</span></p>
-        <p id='cuerpo-noticia'>Los expertos dicen que no habrá cambios significativos hoy. Todo sigue igual.</p>
+// Ex 1 Fase 1 y 2
 
-        <div style='margin-top: 20px; border: 1px solid #ccc; padding: 10px;'>
-            <h3>Zona de Comentarios</h3>
-            <input type='text' id='input-comentario' value='Escribe aquí tu opinión respetuosa...' size='50'>
-            <button>Enviar (No funciona aún)</button>
-        </div>"
+document.getElementById("titular").textContent = "TITULAR DRAMATICO!!!";
+document.getElementById("autor").textContent = "Ezequiel Carracedo";
+document.getElementById("cuerpo-noticia").textContent = "Esta es la nueva noticia locasdlkgjsogsdflgndflgmdflkvmfdlmflvmdflkvdflkvmrlkdflbkvmdflvbkkmdflkdfmlkdfmvlkdfmvlxdfvblkdfblfxnlglgmlsdfgmsflkgmlsdfkgmlkfg";
+document.getElementById("input-comentario").value = 'Ezequiel Carracedo';
 
-document.body.append(article);
+
+// Ex 1 fase 3
+
+//Copiar estructura del article existent.
+let articleOriginal = document.querySelector("article");
+
+//Clonem la seva estructura
+let articleNou = articleOriginal.cloneNode(true);
+
+
+//Modifiquem el contingut del article.
+articleNou.querySelector("h1").textContent = "Este es mi nuevo titular";
+articleNou.querySelector("#cuerpo-noticia").textContent = "Este es el nuevo cuerpo de la noticia";
+
+//Creem una imatge per insertarla
+let img = document.createElement("img")
+img.src = "images.jpeg"
+
+
+articleNou.append(img)
+document.body.append(articleNou);
+
+
+
+
 
 
 
