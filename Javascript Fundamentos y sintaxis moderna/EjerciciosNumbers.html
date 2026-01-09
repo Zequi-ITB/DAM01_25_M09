@@ -36,6 +36,8 @@
 
 
 
+
+
         // Ejercicio 2
         function multiplicacionNumeros(num1, num2) {
             let resultat = 0;
@@ -54,6 +56,8 @@
         multiplicacionNumeros(num3, num4);
 
 
+
+
         // Ejercicio 3
         function multiplicacionTresNumeros(num1, num2, num3) {
             let multiplicacio = 0;
@@ -62,7 +66,7 @@
             for (let i = 1; i <= num2; i++) {
                 multiplicacio += num1;
             }
-            for (let x = 1; x<= num3; x++){
+            for (let x = 1; x <= num3; x++) {
                 resultat += multiplicacio;
             }
 
@@ -77,17 +81,57 @@
         multiplicacionTresNumeros(num5, num6, num7);
 
 
+
+
         // Ejercicio 4
-        function mediaNotas(num1, num2, num3){
+        function mediaNotas(num1, num2, num3) {
             let resultat = 0;
             let suma = num1 + num2 + num3;
 
-            resultat = suma / 3;
+            resultat = (suma / 3).toFixed(1);
+
+            console.log(resultat)
+        }
+
+        let nota1 = 5;
+        let nota2 = 6.5;
+        let nota3 = 8;
+
+        mediaNotas(nota1, nota2, nota3);
 
 
+        // Ejercicio 5
+        function calculoEjercicio5() {
 
+            for (let num = 0; num <= 10_000; num++) {
+
+                let sumaCubos = calcularCuboSuma(num);
+
+                if (sumaCubos == num) {
+                    console.log(num);
+                }
+            }
 
         }
+
+        function calcularCuboSuma(num) {
+            let sNum = num.toString();
+            let suma = 0;
+            let cubo = 0;
+
+            for (let i = 0; i < sNum.length; i++) {
+                numeroAlCubo = parseInt(sNum.charAt(i)) * parseInt(sNum.charAt(i)) * parseInt(sNum.charAt(i));
+                suma += numeroAlCubo;
+            }
+
+            return suma;
+        }
+
+        calculoEjercicio5();
+
+
+
+
 
 
 
