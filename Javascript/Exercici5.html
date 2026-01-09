@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 - Tablero de ajedrez </title>
+</head>
+
+<body>
+    <h1 id="titulo">Ejercicio 5 - Tablero de ajedrez </h1>
+    <div id="tablero">
+
+    </div>
+
+
+    <script>
+
+        let tableroFila = document.getElementById("tablero");
+
+
+
+        //Definim propietats del contenidor general 
+        tableroFila.style.display = 'inline';
+        tableroFila.style.width = '400px';
+
+
+        let tableroColumne = document.createElement('div');
+
+
+
+
+
+        for (let fila = 1; fila <= 8; fila++) {
+
+            let tableroColumne = document.createElement('div');
+
+            for (let columne = 1; columne <= 8; columne++) {
+                let casilla = document.createElement('div');
+
+                if (fila == 1 || fila == 2) {
+                    casilla.textContent = "o"
+                }
+                else {
+                    if (fila == 7 || fila == 8) {
+                        casilla.textContent = "x"
+                    } else {
+                        casilla.textContent = ' ';
+                    }
+                }
+
+                casilla.className = 'casilla';
+
+
+
+                tableroColumne.appendChild(casilla);
+
+
+
+
+                let casillaEstilo = tableroColumne.querySelector(`.casilla:nth-child(${columne})`);
+
+                if (fila % 2 == 0) {
+                    if (columne % 2 == 0) {
+                        casillaEstilo.style.backgroundColor = 'black';
+                        casillaEstilo.style.color = "white";
+                    }
+                    else {
+                        casillaEstilo.style.backgroundColor = 'white';
+                        casillaEstilo.style.color = "black";
+                    }
+
+                }
+                else {
+                    if (columne % 2 != 0) {
+                        casillaEstilo.style.backgroundColor = 'black';
+                        casillaEstilo.style.color = "white";
+                    }
+                    else {
+                        casillaEstilo.style.backgroundColor = 'white';
+                        casillaEstilo.style.color = "black";
+                    }
+                }
+
+
+                //Definim el estil general de les tecles
+                casillaEstilo.style.width = "50px";
+                casillaEstilo.style.height = "50px";
+                casillaEstilo.style.fontWeight = "bold";
+
+            }
+            tableroFila.appendChild(tableroColumne);
+            tableroColumne.style.display = 'flex';
+            tableroColumne.style.width = '400px';
+
+
+
+
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
