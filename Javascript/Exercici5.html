@@ -18,24 +18,19 @@
 
         let tableroFila = document.getElementById("tablero");
 
-
-
         //Definim propietats del contenidor general 
         tableroFila.style.display = 'inline';
         tableroFila.style.width = '400px';
 
 
-        let tableroColumne = document.createElement('div');
-
-
-
-
-
+        //Fem un bucle per crear el taulell
         for (let fila = 1; fila <= 8; fila++) {
 
+            //Definim el div a on guardarem cada casilla
             let tableroColumne = document.createElement('div');
 
             for (let columne = 1; columne <= 8; columne++) {
+                //Definim el div que sera el contenidor individual de cada casilla
                 let casilla = document.createElement('div');
 
                 if (fila == 1 || fila == 2) {
@@ -49,14 +44,16 @@
                     }
                 }
 
+                //Definim la class de cada casilla.
                 casilla.className = 'casilla';
 
+                casilla.style.textAlign = "center";
+                
+                casilla.style.fontSize = "larger";
 
 
+                //Afegim la casilla en cada iteracio
                 tableroColumne.appendChild(casilla);
-
-
-
 
                 let casillaEstilo = tableroColumne.querySelector(`.casilla:nth-child(${columne})`);
 
@@ -83,23 +80,19 @@
                 }
 
 
-                //Definim el estil general de les tecles
+                //Definim el estil general de les casilles
                 casillaEstilo.style.width = "50px";
                 casillaEstilo.style.height = "50px";
                 casillaEstilo.style.fontWeight = "bold";
-
+                casillaEstilo.style.border = "1px solid black";
             }
+
+            //Afegim cada columna en el taulell
             tableroFila.appendChild(tableroColumne);
             tableroColumne.style.display = 'flex';
             tableroColumne.style.width = '400px';
 
-
-
-
         }
-
-
-
 
 
 
