@@ -12,7 +12,87 @@
 
     <script>
 
+        // Ejercicio 1 
 
+        function comprovarString(paraula) {
+
+            let result = ""
+            if (paraula.startsWith("As")) {
+
+                result = paraula;
+            }
+            else {
+                result = "As" + paraula;
+            }
+
+            console.log(result);
+        }
+
+        let paraula = "teroide";
+        comprovarString(paraula);
+
+
+        //Ejercicio 2
+        function eliminarCaracter(paraula, posicio) {
+            let resultat = "";
+            if (posicio < paraula.length) {
+                for (let it = 0; it < paraula.length; it++) {
+                    if (it != posicio - 1) {
+                        resultat += paraula.charAt(it);
+                    }
+                }
+            }
+            return resultat;
+        }
+
+        let resultat = eliminarCaracter("Murcielago", 3);
+
+        console.log(resultat);
+
+        //Ejercicio 3
+
+        function intercanviCaracters(paraula) {
+            let resultat = "";
+            let primerCaracter = paraula.charAt(0);
+            let ultimCaracter = paraula.charAt(paraula.length - 1);
+
+            for (let i = 1; i < paraula.length; i++) {
+                if (i != paraula.length - 1) {
+                    resultat += paraula.charAt(i);
+                }
+            }
+            resultat = ultimCaracter + resultat + primerCaracter;
+
+            return resultat;
+        }
+
+        let paraulaCambiada = intercanviCaracters("hola");
+
+        console.log(paraulaCambiada);
+
+
+        //Ejercico separar vocales
+        function separarVocalesDeConsonantes(frase) {
+            let vocalString = "";
+            let llistatVocals = ['a', 'e', 'i', 'o', 'u'];
+            let consonantString = "";
+            let resultat = "";
+
+
+            for (let it = 0; it < frase.length; it++) {
+                if (llistatVocals.includes(frase.charAt(it))) {
+                    vocalString += frase.charAt(it);
+                }
+                else if(frase.charAt(it)!=" "){
+                    consonantString += frase.charAt(it);
+                }
+            }
+            resultat = vocalString+" " + consonantString;
+            return resultat;
+        }
+
+        let vocalsConsonants = separarVocalesDeConsonantes("hola esta frase es de prueba");
+        console.log(vocalsConsonants);
 
 
 

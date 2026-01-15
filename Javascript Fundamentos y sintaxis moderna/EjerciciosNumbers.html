@@ -15,24 +15,21 @@
 
         // Ejercicio 1
         function numeroMayor(num1, num2) {
-            let resultat;
 
-            if (num1 > num2) {
-                resultat = num1;
+
+            if (num1 >= num2) {
+                return num1;
             }
-            else {
-                resultat = num2;
-            }
+            return num2;
 
 
-
-            console.log(resultat)
         }
 
         let num1 = 2;
         let num2 = 3;
 
-        numeroMayor(num1, num2);
+        let numMajor = numeroMayor(num1, num2);
+        console.log(numMajor);
 
 
 
@@ -47,40 +44,28 @@
             }
 
 
-            console.log(resultat);
+            return resultat;
         }
 
         let num3 = 2;
         let num4 = 3;
 
-        multiplicacionNumeros(num3, num4);
+        let resultatMultiplicacio = multiplicacionNumeros(num3, num4);
+
+        console.log(resultatMultiplicacio);
 
 
 
 
         // Ejercicio 3
-        function multiplicacionTresNumeros(num1, num2, num3) {
-            let multiplicacio = 0;
-            let resultat = 0;
-
-            for (let i = 1; i <= num2; i++) {
-                multiplicacio += num1;
-            }
-            for (let x = 1; x <= num3; x++) {
-                resultat += multiplicacio;
-            }
-
-
-            console.log(resultat);
-        }
-
+ 
         let num5 = 2;
         let num6 = 2;
         let num7 = 2;
 
-        multiplicacionTresNumeros(num5, num6, num7);
+        resultatMultiplicacio = multiplicacionNumeros(multiplicacionNumeros(num5, num6), num7);
 
-
+        console.log(resultatMultiplicacio);
 
 
         // Ejercicio 4
@@ -117,10 +102,10 @@
         function calcularCuboSuma(num) {
             let sNum = num.toString();
             let suma = 0;
-            let cubo = 0;
+            let numeroAlCubo = 0;
 
             for (let i = 0; i < sNum.length; i++) {
-                numeroAlCubo = parseInt(sNum.charAt(i)) * parseInt(sNum.charAt(i)) * parseInt(sNum.charAt(i));
+                numeroAlCubo = multiplicacionNumeros(multiplicacionNumeros(parseInt(sNum.charAt(i)), parseInt(sNum.charAt(i))),parseInt(sNum.charAt(i)));
                 suma += numeroAlCubo;
             }
 
