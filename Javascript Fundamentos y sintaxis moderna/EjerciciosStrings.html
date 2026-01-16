@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicios Number</title>
+    <meta name="author" content="Ezequiel Carracedo">
+    <title>Ejercicios Strings</title>
 </head>
 
 <body>
@@ -15,21 +16,15 @@
         // Ejercicio 1 
 
         function comprovarString(paraula) {
-
             let result = ""
             if (paraula.startsWith("As")) {
-
-                result = paraula;
+                return paraula;
             }
-            else {
-                result = "As" + paraula;
-            }
-
-            console.log(result);
+            return ("As" + paraula);
         }
 
         let paraula = "teroide";
-        comprovarString(paraula);
+        console.log(comprovarString(paraula));
 
 
         //Ejercicio 2
@@ -83,21 +78,16 @@
                 if (llistatVocals.includes(frase.charAt(it))) {
                     vocalString += frase.charAt(it);
                 }
-                else if(frase.charAt(it)!=" "){
+                else if (frase.charAt(it) != " ") {
                     consonantString += frase.charAt(it);
                 }
             }
-            resultat = vocalString+" " + consonantString;
+            resultat = vocalString + " " + consonantString;
             return resultat;
         }
 
         let vocalsConsonants = separarVocalesDeConsonantes("hola esta frase es de prueba");
         console.log(vocalsConsonants);
-
-
-
-
-
 
 
 
