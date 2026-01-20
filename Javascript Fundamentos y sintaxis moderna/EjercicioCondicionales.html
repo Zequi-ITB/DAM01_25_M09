@@ -1,0 +1,64 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ezequiel Carracedo">
+    <title>Ejercicios Condicionales</title>
+</head>
+
+<body>
+
+    <script>
+
+        //Ejercicio 1 Numeros primos
+
+        function numerosPrimos(iniciRang, fiRang) {
+            for (it = iniciRang; it <= fiRang; it++) {
+                if (it % 2 != 0) {
+                    console.log(it);
+                }
+            }
+        }
+        numerosPrimos(1, 50);
+
+        //Numero secreto
+        function numeroSecreto() {
+            let numeroSecreto = parseInt(Math.random() * 100);
+            let esCorrecte = false;
+            let contador = 0;
+            do {
+                let numero = prompt("Adivina el numero entre 1 y 100: ");
+
+                if (numero < numeroSecreto) {
+                    alert("El número que buscas es mayor.");
+                    contador++;
+                } else if (numero > numeroSecreto) {
+                    alert("El número que buscas es menor.");
+                    contador++;
+                } else {
+                    alert("¡Correcto! Has adivinado el número.");
+                    esCorrecte = true;
+                }
+            } while (!esCorrecte)
+
+
+        }
+
+
+        numeroSecreto();
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
+
+</html>
