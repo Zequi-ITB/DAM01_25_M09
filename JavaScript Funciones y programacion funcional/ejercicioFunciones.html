@@ -1,0 +1,80 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios funciones</title>
+</head>
+
+<body>
+
+    <script>
+
+        //Ejercicio 1
+        function saludar(nombre, saludo = "Hola, ") {
+            if (nombre == undefined) {
+                throw new Error("EL NOMBRE NO PUEDE ESTAR VACIO!!");
+            }
+            else {
+                console.log(saludo + nombre);
+            }
+        }
+
+        saludar("Ezequiel")
+
+
+        //Ejercicio 2
+        function calcular(num1, num2, operacion = "suma") {
+            let resultat;
+            switch (operacion) {
+                case "division": resultat = num1 / num2;
+                case "resta": resultat = num1 - num2;
+                case "multiplicacion": resultat = num1 * num2;
+                default: resultat = num1 + num2;
+            }
+
+            console.log("El resultat de la operacion " + operacion + " es : " + resultat)
+        }
+
+        calcular(1, 2);
+
+        //Ejercicio 3
+        function calcularPromedio() {
+            let quantitatNotes = arguments.length;
+            let sumaNotes = 0;
+            for (let element of arguments) {
+                sumaNotes += element;
+            }
+            return sumaNotes / quantitatNotes;
+        }
+
+        let mitjana = calcularPromedio(5, 5, 6);
+        console.log("El promedio de las notas es: " + mitjana);
+
+
+        //Ejercicio 4
+        function concatenarNombres() {
+            let nomsConcatenats = "";
+            for(let nombre of arguments){
+                if(typeof nombre === "string"){
+                    nomsConcatenats +=nombre+", ";
+                }
+            }
+       
+            return nomsConcatenats.substring(0,nomsConcatenats.length-2);
+        }
+
+        let noms =concatenarNombres("yo","ezequiel",20,"hector", true);
+        console.log(noms);
+
+
+    </script>
+
+
+</body>
+
+</html>
+
+</html>
