@@ -62,6 +62,9 @@
         let buscarPosLletra = diesSetmana.findIndex(dia => dia.charAt(0) == "V");
         console.log("La posición de la palabra buscada es: "+buscarPosLletra);
 
+        console.log("Algún día comienza por 'S': "+ diesSetmana.some(dia => dia.charAt(0) =="S"));
+        console.log("Todos los dias acaban por 's': "+ diesSetmana.every(dia => dia.charAt(dia.length-1) =="s"));
+
 
         let coches = [
             ["seat", "Codoba", 1997, 10000],
