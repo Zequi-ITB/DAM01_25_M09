@@ -12,6 +12,57 @@
 
     <script>
 
+        //Ejercicio 1
+        function sumarPares(arrayNums) {
+            let sumaPares = 0;
+            for (let it of arrayNums) {
+                if (it % 2 == 0) sumaPares += it;
+            }
+            return sumaPares;
+        }
+
+        let suma = sumarPares([2, 4, 5, 6, 7, 8, 3, 1, 10, 4]);
+        console.log(suma);
+
+
+        //Ejercicio 2
+        function ordenarAlumnoDatos(arrayAlumno) {
+            let nombre = arrayAlumno.pop();
+            arrayAlumno.unshift(nombre);
+            let sumaNotas = 0;
+            arrayAlumno.slice(2).forEach(element => {
+                sumaNotas += parseInt(element);
+            });
+
+            let mediaNotas = sumaNotas / (arrayAlumno.length - 2);
+            arrayAlumno.push(mediaNotas);
+
+            return mediaNotas;
+        }
+
+        let alumno = ["Rodriguez", "8", 9, '5', 4, 'Clara'];
+        ordenarAlumnoDatos(alumno);
+
+        console.log(alumno);
+
+
+        //Ejercicio 3
+        let arrayParaules = ["Bob", "Alex", "Zoello"];
+
+        let paraulesFiltrades = arrayParaules.filter(paraula => paraula.charAt(0) != 'Z');
+        console.log(paraulesFiltrades);
+
+
+        //Ejercicio 1.2
+
+        let diesSetmana =["Lunes", "Martes","Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"]
+        let buscarDiaLletra = diesSetmana.find(dia  => dia.charAt(0) == "M"  );
+        console.log("El elemento buscado es: "+buscarDiaLletra);
+
+        let buscarPosLletra = diesSetmana.findIndex(dia => dia.charAt(0) == "V");
+        console.log("La posición de la palabra buscada es: "+buscarPosLletra);
+
+
         let coches = [
             ["seat", "Codoba", 1997, 10000],
             ["Kia", "Sorento", 1994, 1000],
@@ -41,7 +92,7 @@
 
         newCoches.sort(([, , , preuA] = cocheA, [, , , preuB] = cocheB) => preuB - preuA);
 
-        let preuIncrementatCoches = newCoches.map(([marca,modelo ,ano , preu] = coche) => [marca,modelo, ano,preu - preu * 0.20]);
+        let preuIncrementatCoches = newCoches.map(([marca, modelo, ano, preu] = coche) => [marca, modelo, ano, preu - preu * 0.20]);
 
         console.log(preuIncrementatCoches);
 
