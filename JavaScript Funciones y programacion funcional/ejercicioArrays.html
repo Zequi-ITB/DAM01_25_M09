@@ -62,8 +62,35 @@
         let buscarPosLletra = diesSetmana.findIndex(dia => dia.charAt(0) == "V");
         console.log("La posición de la palabra buscada es: "+buscarPosLletra);
 
-        console.log("Algún día comienza por 'S': "+ diesSetmana.some(dia => dia.charAt(0) =="S"));
-        console.log("Todos los dias acaban por 's': "+ diesSetmana.every(dia => dia.charAt(dia.length-1) =="s"));
+        console.log("¿Algún día comienza por 'S'?: "+ diesSetmana.some(dia => dia.charAt(0) =="S"));
+        console.log("¿Todos los días acaban en 's'?: "+ diesSetmana.every(dia => dia.charAt(dia.length-1) =="s"));
+
+
+
+        //Ejercicio 1.3
+
+        let arrayNotas = [3.4, 7.9, 8.0, 2.5, 5.6, 5.4, 9.0];
+
+        let mitjana = arrayNotas.reduce((nota, total)=>total += nota)/arrayNotas.length;
+        console.log("La media de las notas es:: "+mitjana);
+
+        let primeraNotaMajor5 = arrayNotas.reduce((nota, max) => nota>5 ? nota: max);
+        console.log("La primera nota que supera el 5 es: "+primeraNotaMajor5);
+
+
+        let notasSobre20 = arrayNotas.map(nota => (nota/20)*10);
+        console.log("Las notas sobre una puntuación total de 20 son: "+notasSobre20);
+
+
+
+
+
+
+
+
+
+
+
 
 
         let coches = [
@@ -88,16 +115,17 @@
             ["Mercedes", "Calse D", 2011, 21221]
         ];
 
-        let cochesFiltrats = [];
-
-        let newCoches = coches.filter(([marca, , ano] = coche) => marca !== "Kia" && marca !== "Alfa Romeo" && 2026 - ano >= 20);
 
 
-        newCoches.sort(([, , , preuA] = cocheA, [, , , preuB] = cocheB) => preuB - preuA);
+        let cochesFiltrats = coches.filter(([marca, , ano, ] = coche) => marca != "Kia" && marca!="Alfa Romeo" && 2026-ano>20);
 
-        let preuIncrementatCoches = newCoches.map(([marca, modelo, ano, preu] = coche) => [marca, modelo, ano, preu - preu * 0.20]);
+        console.log(cochesFiltrats);
 
-        console.log(preuIncrementatCoches);
+        let cochesOrdenats = cochesFiltrats.sort(([ , , ,preuA], [, , ,preuB]) => preuB-preuA);
+        console.log(cochesOrdenats);
+
+        let cochesRebajados = coches.map(([marca, modelo, ano, preu]) => [marca, modelo, ano, preu-preu*0.20]);
+        console.log(cochesRebajados);
 
 
 

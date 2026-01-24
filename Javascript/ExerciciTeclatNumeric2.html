@@ -24,7 +24,6 @@
         contenedor.style.flexWrap = 'wrap'; // Obligatorio para que bajen a la siguiente fila
         contenedor.style.width = '180px';
 
-
         //Fem un bucle for per crear un element amb numeros del 1 al 9 amb la classe "teclat".
         for (let it = 1; it <= 20; it++) {
             let parrafNou = document.createElement('p')
@@ -32,10 +31,8 @@
             parrafNou.className = 'teclat';
             contenedor.appendChild(parrafNou);
 
-
             //Apliquem estil als numeros creats.
             let teclat = contenedor.querySelector(`.teclat:nth-child(${it})`);
-
 
             if (it % 2 == 0) {
                 teclat.style.backgroundColor = 'blue';
@@ -50,8 +47,6 @@
                 }
             }
 
-
-
             //Definim el estil general de les tecles
             teclat.style.width = "20px";
             teclat.style.height = "20px";
@@ -62,7 +57,56 @@
 
 
 
+        //Afegir enunciat
+
+        //Div
+        let div = document.createElement("div");
+        //nom class
+        div.setAttribute("class", "enunciat");
+
+        //titol
+        let parraf2 = document.createElement("h3");
+        parraf2.innerHTML = ("Resolución: ");
+
+        //imatges exercici i enunciat
+        let imgExercici = document.createElement("img");
+        imgExercici.src = "imatges/exNumeric2.png";
+        let imgEnunciat = document.createElement("img");
+        imgEnunciat.src = "imatges/enunciatNumeric2.png";
+
+        //article
+        let articleNou2 = document.createElement("article");
+        articleNou2.append(parraf2);
+        div.append(imgEnunciat);
+        div.append(imgExercici);
+
+        articleNou2.append(div);
+
+        //afegim al final del document.
+        document.body.append(articleNou2);
+
     </script>
+
+    <style>
+        article {
+            padding-bottom: 1%;
+        }
+
+        .enunciat {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h3 {
+            font-size: larger;
+        }
+
+        img {
+            width: 40rem;
+            padding: 1%;
+        }
+    </style>
 </body>
 
 </html>

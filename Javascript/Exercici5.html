@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 5 - Tablero de ajedrez </title>
+    <meta name="author" content="Ezequiel Carracedo">
+    <title>Dom - Exercici 5</title>
 </head>
 
 <body>
@@ -21,7 +22,6 @@
         //Definim propietats del contenidor general 
         tableroFila.style.display = 'inline';
         tableroFila.style.width = '400px';
-
 
         //Fem un bucle per crear el taulell
         for (let fila = 1; fila <= 8; fila++) {
@@ -48,7 +48,7 @@
                 casilla.className = 'casilla';
 
                 casilla.style.textAlign = "center";
-                
+
                 casilla.style.fontSize = "larger";
 
 
@@ -96,7 +96,58 @@
 
 
 
+        //Afegir enunciat
+
+        //Div
+        let div = document.createElement("div");
+        //nom class
+        div.setAttribute("class", "enunciat");
+
+        //titol
+        let parraf2 = document.createElement("h3");
+        parraf2.innerHTML = ("Resolución: ");
+
+        //imatges exercici i enunciat
+        let imgExercici = document.createElement("img");
+        imgExercici.src = "imatges/escacs1.png";
+        let imgExercici2 = document.createElement("img");
+        imgExercici2.src = "imatges/escacs2.png";
+        let imgEnunciat = document.createElement("img");
+        imgEnunciat.src = "imatges/enunciatEscacs.png";
+
+        //article
+        let articleNou2 = document.createElement("article");
+        articleNou2.append(parraf2);
+        div.append(imgEnunciat);
+        div.append(imgExercici);
+        div.append(imgExercici2);
+
+        articleNou2.append(div);
+
+        //afegim al final del document.
+        document.body.append(articleNou2);
+
     </script>
+
+    <style>
+        article {
+            padding-bottom: 1%;
+        }
+
+        .enunciat {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h3 {
+            font-size: larger;
+        }
+
+        img {
+            padding: 1%;
+        }
+    </style>
 </body>
 
 </html>

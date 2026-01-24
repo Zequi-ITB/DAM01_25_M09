@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 2 - Teclado Alfanúmerico</title>
+    <meta name="author" content="Ezequiel Carracedo">
+    <title>Dom - Teclat Alfanumeric</title>
 </head>
 
 <body>
-    <h1 id="titulo">Ejercicio 2 - Teclado númerico</h1>
+    <h1 id="titulo">Teclado Alfanúmerico</h1>
     <div id="contenedor">
         <!-- Aquí es dónde ira el teclado. -->
     </div>
 
 
     <script>
-
         // Definim el contenidor de les lletres i dels numeros en una variable
         let contenedorLletres = document.createElement('div');
         let contenedorNumeric = document.createElement('div');
@@ -31,7 +31,6 @@
         contenedorLletres.style.display = 'flex';
         contenedorLletres.style.flexWrap = 'wrap';
         contenedorLletres.style.width = '420px';
-
 
         //Definim la mida i el display del contenidor del teclat numeric.
         contenedorNumeric.style.display = 'flex';
@@ -69,7 +68,6 @@
             teclat.style.height = "40px";
             teclat.style.color = "white";
             teclat.style.fontWeight = "bold";
-
         }
 
         //Fem un altre bucle per el teclat numeric
@@ -100,11 +98,65 @@
             teclatNum.style.height = "40px";
             teclatNum.style.color = "white";
             teclatNum.style.fontWeight = "bold";
-        
+
         }
 
 
+
+
+        //Afegir enunciat
+
+        //Div
+        let div = document.createElement("div");
+        //nom class
+        div.setAttribute("class", "enunciat");
+
+        //titol
+        let parraf2 = document.createElement("h3");
+        parraf2.innerHTML = ("Resolución: ");
+
+        //imatges exercici i enunciat
+        let imgExercici = document.createElement("img");
+        imgExercici.src = "imatges/alfanumeric1.png";
+        let imgExercici2 = document.createElement("img");
+        imgExercici2.src = "imatges/alfanumeric2.png";
+        let imgEnunciat = document.createElement("img");
+        imgEnunciat.src = "imatges/enunciatAlfanumeric.png";
+
+        //article
+        let articleNou2 = document.createElement("article");
+        articleNou2.append(parraf2);
+        div.append(imgEnunciat);
+        div.append(imgExercici);
+        div.append(imgExercici2);
+
+        articleNou2.append(div);
+
+        //afegim al final del document.
+        document.body.append(articleNou2);
+
     </script>
+
+    <style>
+        article {
+            padding-top: 5%;
+        }
+
+        .enunciat {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h3 {
+            font-size: larger;
+        }
+
+        img {
+            width: 40rem;
+            padding: 1%;
+        }
+    </style>
 </body>
 
 </html>
