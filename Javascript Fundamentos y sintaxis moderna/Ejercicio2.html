@@ -17,23 +17,56 @@
             alert("Hola, " + nombreUser + " !");
         }
 
-        let contingut = "<h2>Ejercicio 2 - Saludo</h2> <p>Crea una página que contenga un título :Muestre un alert con el mensaje: hola ¡Bienvenido a mi página!</p> <p>Use confirm para preguntar: ¿Te gustaría continuar?.</p> <p> Si el usuario acepta, pide su nombre con prompt y muestra: </p> <p>console.log(¡Hola,  + nombre + !)</p>";
+
+
+        //Afegir enunciat
+
+        //Div
         let div = document.createElement("div");
-        document.body.appendChild(div);
-        div.innerHTML = contingut;
+        //nom class
+        div.setAttribute("class", "enunciat");
+
+        //titol
+        let parraf2 = document.createElement("h3");
+        parraf2.innerHTML = ("Resolución: ");
+
+        //imatges exercici i enunciat
+        let imgExercici = document.createElement("img");
+        imgExercici.src = "imatges/ex2.png";
+        let imgEnunciat = document.createElement("img");
+        imgEnunciat.src = "imatges/enunciat2.png";
+
+        //article
+        let articleNou2 = document.createElement("article");
+        articleNou2.append(parraf2);
+        div.append(imgEnunciat);
+        div.append(imgExercici);
+
+        articleNou2.append(div);
+
+        //afegim al final del document.
+        document.body.append(articleNou2);
+
     </script>
     <style>
-        div{
-            padding: 50px;
-            border:2px solid black;
+        article {
+            padding-bottom: 1%;
+            border: 2px solid black;
         }
 
-        h2{
-            font-size: larger;
-        ;}
+        .enunciat {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-        p {
-            font-size: large;
+        h3 {
+            font-size: larger;
+        }
+
+        img {
+            width: 40rem;
+            padding: 1%;
         }
     </style>
 

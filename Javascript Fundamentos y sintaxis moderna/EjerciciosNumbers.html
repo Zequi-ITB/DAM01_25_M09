@@ -13,7 +13,6 @@
 
     <script>
 
-
         // Ejercicio 1
         function numeroMayor(num1, num2) {
             if (num1 >= num2) {
@@ -30,17 +29,12 @@
 
 
 
-
-
         // Ejercicio 2
         function multiplicacionNumeros(num1, num2) {
             let resultat = 0;
-
             for (let i = 1; i <= num2; i++) {
                 resultat += num1;
             }
-
-
             return resultat;
         }
 
@@ -50,8 +44,6 @@
         let resultatMultiplicacio = multiplicacionNumeros(num3, num4);
 
         console.log(resultatMultiplicacio);
-
-
 
 
         // Ejercicio 3
@@ -64,23 +56,19 @@
 
         console.log(resultatMultiplicacio);
 
-
         // Ejercicio 4
-        function mediaNotas(num1, num2, num3) {
+        function mediaNotas(num1, num2) {
             let resultat = 0;
-            let suma = num1 + num2 + num3;
+            let suma = 0;
+            for (x of arguments) {
+                suma += x;
+            }
 
-            resultat = (suma / 3).toFixed(1);
+            resultat = (suma / arguments.length).toFixed(1);
 
             console.log(resultat)
         }
-
-        let nota1 = 5;
-        let nota2 = 6.5;
-        let nota3 = 8;
-
-        mediaNotas(nota1, nota2, nota3);
-
+        mediaNotas(5.5, 8.0, 6.5);
 
         // Ejercicio 5
         function calculoEjercicio5() {
@@ -100,25 +88,80 @@
             let sNum = num.toString();
             let suma = 0;
             let numeroAlCubo = 0;
-
-            for (let i = 0; i < sNum.length; i++) {
-                numeroAlCubo = multiplicacionNumeros(multiplicacionNumeros(parseInt(sNum.charAt(i)), parseInt(sNum.charAt(i))), parseInt(sNum.charAt(i)));
-                suma += numeroAlCubo;
+            if (typeof num == "number") {
+                for (let i = 0; i < sNum.length; i++) {
+                    numeroAlCubo = multiplicacionNumeros(multiplicacionNumeros(parseInt(sNum.charAt(i)), parseInt(sNum.charAt(i))), parseInt(sNum.charAt(i)));
+                    suma += numeroAlCubo;
+                }
+                return suma;
             }
-
-            return suma;
+            else return false;
         }
-
         calculoEjercicio5();
+        console.log(calcularCuboSuma("sdfaf"));
 
 
 
+
+
+        //Afegir enunciat
+
+        //Div
+        let div = document.createElement("div");
+        //nom class
+        div.setAttribute("class", "enunciat");
+
+        //titol
+        let parraf2 = document.createElement("h3");
+        parraf2.innerHTML = ("Resolución: ");
+
+        //imatges exercici i enunciat
+        let imgExercici = document.createElement("img");
+        imgExercici.src = "imatges/exNumbers1.png";
+        let imgExercici2 = document.createElement("img");
+        imgExercici2.src = "imatges/exNumbers2.png";
+        let imgEnunciat = document.createElement("img");
+        imgEnunciat.src = "imatges/enunciatNumbers.png";
+
+        //article
+        let articleNou2 = document.createElement("article");
+        articleNou2.append(parraf2);
+        div.append(imgEnunciat);
+        div.append(imgExercici);
+        div.append(imgExercici2);
+
+        articleNou2.append(div);
+
+        //afegim al final del document.
+        document.body.append(articleNou2);
 
 
 
 
 
     </script>
+
+    <style>
+        article {
+            padding-bottom: 1%;
+            border: 2px solid black;
+        }
+
+        .enunciat {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h3 {
+            font-size: larger;
+        }
+
+        img {
+            width: 80rem;
+            padding: 1%;
+        }
+    </style>
 
 
 </body>

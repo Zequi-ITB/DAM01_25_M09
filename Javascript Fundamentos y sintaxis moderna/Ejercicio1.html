@@ -11,40 +11,60 @@
 <body>
     <script>
 
-        //CORREGIR EL CODIGO COMENTADO
-        /**
-         * console.log('Hola, mundo!); 
-        let nombre = ‘Manolo’;
-        console.log('Bienvenida ' + noombre); 
-        console.log(saludo);  */
-
-
         console.log("Hola, mundo!");
         let nombre = "Manolo";
         console.log("Bienvenida " + nombre);
         console.log("Saludo");
 
 
-        let contingut = "<h2>Ejercicios 1</h2><article><h3>Corregir el codigo</h3><p>console.log('Hola, mundo!);</p> <p> let nombre = ‘Manolo’;</p> <p>    console.log('Bienvenida ' + noombre); </p> <p>console.log(saludo);</p></article>";
-        contingut += "<h2>Corrección</h2><article><p>console.log('Hola, mundo!'');</p><p>let nombre = 'Manolo';</p><p>  console.log('Bienvenida' + nombre);</p><p> console.log('Saludo');</p></article>"
-        let div = document.createElement("div");
-        document.body.appendChild(div);
-        div.innerHTML = contingut;
+        //Afegir enunciat
 
+        //Div
+        let div = document.createElement("div");
+        //nom class
+        div.setAttribute("class", "enunciat");
+
+        //titol
+        let parraf2 = document.createElement("h3");
+        parraf2.innerHTML = ("Resolución: ");
+
+        //imatges exercici i enunciat
+        let imgExercici = document.createElement("img");
+        imgExercici.src = "imatges/ex1.png";
+        let imgEnunciat = document.createElement("img");
+        imgEnunciat.src = "imatges/enunciat1.png";
+
+        //article
+        let articleNou2 = document.createElement("article");
+        articleNou2.append(parraf2);
+        div.append(imgEnunciat);
+        div.append(imgExercici);
+
+        articleNou2.append(div);
+
+        //afegim al final del document.
+        document.body.append(articleNou2);
 
     </script>
-         <style>
-        div{
-            width: 50%;
-            padding: 50px;
-            border:2px solid black;
+    <style>
+        article {
+            padding-bottom: 1%;
+            border: 2px solid black;
         }
-        h2{
-            font-size: x-large;
-        ;}
 
-        p {
-            font-size: large;
+        .enunciat {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h3 {
+            font-size: larger;
+        }
+
+        img {
+            width: 40rem;
+            padding: 1%;
         }
     </style>
 

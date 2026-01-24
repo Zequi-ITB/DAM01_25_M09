@@ -47,35 +47,60 @@
 
         numeroSecreto();
 
-        
-        let contingut = "<h2>Ejercicios de condicionales</h2><article><h3>1 Números primos</h3><p>Encuentra e imprime todos los números primos dentro del rango [inicio, fin]. Un número es primo si solo es divisible entre 1 y sí mismo, es decir que no es divisible por ningún número inferior a él entre dos.</p><p>Nota: Busca información referente a Math.sqr()</p></article>"+
-        "<article><h3>2 Número secreto</h3><p>Genera un número secreto aleatorio entre 1 y 100 usando Math.random().Pide al usuario que adivine el número. Y tendrás que ir dándo pistas: indicando si el número del usuario es mayor, menor o bien ha acertado. Al final informa al usuario cuantos intentos ha hecho.</p></article>"+ "<h3>Resolución(en consola):</h2>"
+
+
+        //Afegir enunciat
+
+        //Div
         let div = document.createElement("div");
-        document.body.appendChild(div);
-        div.innerHTML = contingut;
+        //nom class
+        div.setAttribute("class", "enunciat");
 
-        let img = document.createElement("img")
-        img.src = "Condicionales.png";
-        div.appendChild(img);
+        //titol
+        let parraf2 = document.createElement("h3");
+        parraf2.innerHTML = ("Resolución: ");
 
-    
+        //imatges exercici i enunciat
+        let imgExercici = document.createElement("img");
+        imgExercici.src = "imatges/exCondicionales.png";
+        let imgEnunciat = document.createElement("img");
+        imgEnunciat.src = "imatges/enunciatCondicionales.png";
+
+        //article
+        let articleNou2 = document.createElement("article");
+        articleNou2.append(parraf2);
+        div.append(imgEnunciat);
+        div.append(imgExercici);
+
+        articleNou2.append(div);
+
+        //afegim al final del document.
+        document.body.append(articleNou2);
+
+
 
 
 
     </script>
-
-     <style>
-        div{
-            width: 50%;
-            padding: 50px;
-            border:2px solid black;
+    <style>
+        article {
+            padding-bottom: 1%;
+            border: 2px solid black;
         }
-        h2{
-            font-size: x-large;
-        ;}
 
-        p {
-            font-size: large;
+        .enunciat {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h3 {
+            font-size: larger;
+        }
+
+        img {
+            width: 40rem;
+            padding: 1%;
         }
     </style>
 
