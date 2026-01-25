@@ -45,7 +45,6 @@
         console.log(resultat);
 
         //Ejercicio 3
-
         function intercanviCaracters(paraula) {
             let resultat = "";
             let primerCaracter = paraula.charAt(0);
@@ -57,14 +56,10 @@
                 }
             }
             resultat = ultimCaracter + resultat + primerCaracter;
-
             return resultat;
         }
-
         let paraulaCambiada = intercanviCaracters("hola");
-
         console.log(paraulaCambiada);
-
 
         //Ejercico separar vocales
         function separarVocalesDeConsonantes(frase) {
@@ -83,13 +78,66 @@
             resultat = vocalString + " " + consonantString;
             return resultat;
         }
-
         let vocalsConsonants = separarVocalesDeConsonantes("hola esta frase es de prueba");
         console.log(vocalsConsonants);
 
 
+        //Afegir enunciat
 
+        //Div
+        let div = document.createElement("div");
+        //nom class
+        div.setAttribute("class", "enunciat");
+
+        //titol
+        let parraf2 = document.createElement("h3");
+        parraf2.innerHTML = ("Resolución: ");
+
+        //imatges exercici i enunciat
+        let imgExercici = document.createElement("img");
+        imgExercici.src = "imatges/exStrings1.png";
+        let imgExercici2 = document.createElement("img");
+        imgExercici2.src = "imatges/exStrings2.png";
+        let imgEnunciat = document.createElement("img");
+        imgEnunciat.src = "imatges/enunciatStrings.png";
+        let imgEnunciat2 = document.createElement("img");
+        imgEnunciat2.src = "imatges/enunciatStrings2.png";
+
+        //article
+        let articleNou2 = document.createElement("article");
+        articleNou2.append(parraf2);
+        div.append(imgEnunciat);
+        div.append(imgEnunciat2);
+        div.append(imgExercici);
+        div.append(imgExercici2);
+
+        articleNou2.append(div);
+
+        //afegim al final del document.
+        document.body.append(articleNou2);
     </script>
+
+    <style>
+        article {
+            padding-bottom: 1%;
+            border: 2px solid black;
+        }
+
+        .enunciat {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h3 {
+            font-size: larger;
+        }
+
+        img {
+            width: 60rem;
+            padding: 1%;
+        }
+    </style>
 
 
 </body>
