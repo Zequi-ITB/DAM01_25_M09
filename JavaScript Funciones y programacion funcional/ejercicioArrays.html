@@ -11,7 +11,6 @@
 <body>
 
     <script>
-
         //Ejercicio 1
         function sumarPares(arrayNums) {
             let sumaPares = 0;
@@ -24,7 +23,6 @@
         let suma = sumarPares([2, 4, 5, 6, 7, 8, 3, 1, 10, 4]);
         console.log(suma);
 
-
         //Ejercicio 2
         function ordenarAlumnoDatos(arrayAlumno) {
             let nombre = arrayAlumno.pop();
@@ -33,7 +31,6 @@
             arrayAlumno.slice(2).forEach(element => {
                 sumaNotas += parseInt(element);
             });
-
             let mediaNotas = sumaNotas / (arrayAlumno.length - 2);
             arrayAlumno.push(mediaNotas);
 
@@ -42,57 +39,42 @@
 
         let alumno = ["Rodriguez", "8", 9, '5', 4, 'Clara'];
         ordenarAlumnoDatos(alumno);
-
         console.log(alumno);
-
 
         //Ejercicio 3
         let arrayParaules = ["Bob", "Alex", "Zoello"];
-
         let paraulesFiltrades = arrayParaules.filter(paraula => paraula.charAt(0) != 'Z');
         console.log(paraulesFiltrades);
 
 
         //Ejercicio 1.2
 
-        let diesSetmana =["Lunes", "Martes","Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"]
-        let buscarDiaLletra = diesSetmana.find(dia  => dia.charAt(0) == "M"  );
-        console.log("El elemento buscado es: "+buscarDiaLletra);
+        let diesSetmana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"]
+        let buscarDiaLletra = diesSetmana.find(dia => dia.charAt(0) == "M");
+        console.log("El elemento buscado es: " + buscarDiaLletra);
 
         let buscarPosLletra = diesSetmana.findIndex(dia => dia.charAt(0) == "V");
-        console.log("La posición de la palabra buscada es: "+buscarPosLletra);
+        console.log("La posición de la palabra buscada es: " + buscarPosLletra);
 
-        console.log("¿Algún día comienza por 'S'?: "+ diesSetmana.some(dia => dia.charAt(0) =="S"));
-        console.log("¿Todos los días acaban en 's'?: "+ diesSetmana.every(dia => dia.charAt(dia.length-1) =="s"));
-
-
+        console.log("¿Algún día comienza por 'S'?: " + diesSetmana.some(dia => dia.charAt(0) == "S"));
+        console.log("¿Todos los días acaban en 's'?: " + diesSetmana.every(dia => dia.charAt(dia.length - 1) == "s"));
 
         //Ejercicio 1.3
 
         let arrayNotas = [3.4, 7.9, 8.0, 2.5, 5.6, 5.4, 9.0];
 
-        let mitjana = arrayNotas.reduce((nota, total)=>total += nota)/arrayNotas.length;
-        console.log("La media de las notas es:: "+mitjana);
+        let mitjana = arrayNotas.reduce((nota, total) => total += nota) / arrayNotas.length;
+        console.log("La media de las notas es:: " + mitjana);
 
-        let primeraNotaMajor5 = arrayNotas.reduce((nota, max) => nota>5 ? nota: max);
-        console.log("La primera nota que supera el 5 es: "+primeraNotaMajor5);
-
-
-        let notasSobre20 = arrayNotas.map(nota => (nota/20)*10);
-        console.log("Las notas sobre una puntuación total de 20 son: "+notasSobre20);
+        let primeraNotaMajor5 = arrayNotas.reduce((nota, max) => nota > 5 ? nota : max);
+        console.log("La primera nota que supera el 5 es: " + primeraNotaMajor5);
 
 
+        let notasSobre20 = arrayNotas.map(nota => (nota / 20) * 10);
+        console.log("Las notas sobre una puntuación total de 20 son: " + notasSobre20);
 
 
-
-
-
-
-
-
-
-
-
+        //Ejercicio array coches
         let coches = [
             ["seat", "Codoba", 1997, 10000],
             ["Kia", "Sorento", 1994, 1000],
@@ -115,39 +97,84 @@
             ["Mercedes", "Calse D", 2011, 21221]
         ];
 
-
-
-        let cochesFiltrats = coches.filter(([marca, , ano, ] = coche) => marca != "Kia" && marca!="Alfa Romeo" && 2026-ano>20);
+        let cochesFiltrats = coches.filter(([marca, , ano,] = coche) => marca != "Kia" && marca != "Alfa Romeo" && 2026 - ano > 20);
 
         console.log(cochesFiltrats);
 
-        let cochesOrdenats = cochesFiltrats.sort(([ , , ,preuA], [, , ,preuB]) => preuB-preuA);
+        let cochesOrdenats = cochesFiltrats.sort(([, , , preuA], [, , , preuB]) => preuB - preuA);
         console.log(cochesOrdenats);
 
-        let cochesRebajados = coches.map(([marca, modelo, ano, preu]) => [marca, modelo, ano, preu-preu*0.20]);
+        let cochesRebajados = coches.map(([marca, modelo, ano, preu]) => [marca, modelo, ano, preu - preu * 0.20]);
         console.log(cochesRebajados);
 
 
 
+        //Afegir enunciat
+
+        //Div
+        let div = document.createElement("div");
+        //nom class
+        div.setAttribute("class", "enunciat");
+
+        //titol
+        let parraf2 = document.createElement("h3");
+        parraf2.innerHTML = ("Resolución: ");
+
+        //imatges exercici i enunciat
+        let imgExercici = document.createElement("img");
+        imgExercici.src = "imatges/exArrays1.png";
+        let imgExercici2 = document.createElement("img");
+        imgExercici2.src = "imatges/exArrays2.png";
+        let imgExercici3 = document.createElement("img");
+        imgExercici3.src = "imatges/exArrays3.png";
+        let imgEnunciat = document.createElement("img");
+        imgEnunciat.src = "imatges/enunciatArrays1.png";
+        let imgEnunciat2 = document.createElement("img");
+        imgEnunciat2.src = "imatges/enunciatArrays2.png";
+        let imgEnunciat3 = document.createElement("img");
+        imgEnunciat3.src = "imatges/enunciatArrays3.png";
+        let imgEnunciat4 = document.createElement("img");
+        imgEnunciat4.src = "imatges/enunciatArrays4.png";
 
 
+        //article
+        let articleNou2 = document.createElement("article");
+        articleNou2.append(parraf2);
+        div.append(imgEnunciat);
+        div.append(imgExercici);
+        div.append(imgEnunciat2);
+        div.append(imgEnunciat3);
+        div.append(imgExercici2);
+        div.append(imgEnunciat4);
+        div.append(imgExercici3);
 
+        articleNou2.append(div);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        //afegim al final del document.
+        document.body.append(articleNou2);
 
     </script>
+    <style>
+        article {
+            padding-bottom: 1%;
+            border: 2px solid black;
+        }
+
+        .enunciat {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h3 {
+            font-size: larger;
+        }
+
+        img {
+            width: 60rem;
+            padding: 1%;
+        }
+    </style>
 
 
 </body>

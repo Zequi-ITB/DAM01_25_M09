@@ -57,20 +57,73 @@
         //Ejercicio 4
         function concatenarNombres() {
             let nomsConcatenats = "";
-            for(let nombre of arguments){
-                if(typeof nombre === "string"){
-                    nomsConcatenats +=nombre+", ";
+            for (let nombre of arguments) {
+                if (typeof nombre === "string") {
+                    nomsConcatenats += nombre + ", ";
                 }
             }
-       
-            return nomsConcatenats.substring(0,nomsConcatenats.length-2);
+            return nomsConcatenats.substring(0, nomsConcatenats.length - 2);
         }
 
-        let noms =concatenarNombres("yo","ezequiel",20,"hector", true);
+        let noms = concatenarNombres("yo", "ezequiel", 20, "hector", true);
         console.log(noms);
 
 
+
+        //Afegir enunciat
+
+        //Div
+        let div = document.createElement("div");
+        //nom class
+        div.setAttribute("class", "enunciat");
+
+        //titol
+        let parraf2 = document.createElement("h3");
+        parraf2.innerHTML = ("Resolución: ");
+
+        //imatges exercici i enunciat
+        let imgExercici = document.createElement("img");
+        imgExercici.src = "imatges/exFuncions1.png";
+        let imgExercici2 = document.createElement("img");
+        imgExercici2.src = "imatges/exFuncions2.png";
+        let imgEnunciat = document.createElement("img");
+        imgEnunciat.src = "imatges/enunciatFuncions.png";
+
+        //article
+        let articleNou2 = document.createElement("article");
+        articleNou2.append(parraf2);
+        div.append(imgEnunciat);
+        div.append(imgExercici);
+        div.append(imgExercici2);
+
+        articleNou2.append(div);
+
+        //afegim al final del document.
+        document.body.append(articleNou2);
+
     </script>
+
+    <style>
+        article {
+            padding-bottom: 1%;
+            border: 2px solid black;
+        }
+
+        .enunciat {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h3 {
+            font-size: larger;
+        }
+
+        img {
+            width: 60rem;
+            padding: 1%;
+        }
+    </style>
 
 
 </body>
