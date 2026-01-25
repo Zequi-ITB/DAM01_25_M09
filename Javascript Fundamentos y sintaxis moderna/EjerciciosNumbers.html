@@ -83,7 +83,7 @@
             }
 
         }
-
+        // Ejercicio 6
         function calcularCuboSuma(num) {
             let sNum = num.toString();
             let suma = 0;
@@ -95,7 +95,10 @@
                 }
                 return suma;
             }
-            else return false;
+            else {
+                alert("¡No es un número!")
+                return false;
+            }
         }
         calculoEjercicio5();
         console.log(calcularCuboSuma("sdfaf"));
