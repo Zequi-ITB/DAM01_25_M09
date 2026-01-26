@@ -9,37 +9,95 @@
 </head>
 
 <body>
-    <div id = "quadrat"></div>
+    <div id="quadrat"></div>
     <button type="submit">Enviar</button>
-    <button id = "boton" type="submit">Enviar</button>
- 
+    <button id="boton" type="submit">Enviar</button>
+
 
     <script>
         let boton = document.querySelector("button");
         let boton2 = document.getElementById("boton");
-        
-        boton.addEventListener("click",() => alert("Prova event"));
-        boton2.addEventListener("dblclick",()=> alert("Prova doble click"))
+
+        boton.addEventListener("click", () => alert("Prova event"));
+        boton2.addEventListener("dblclick", () => alert("Prova doble click"))
 
 
         let div = document.getElementById("quadrat");
-        div.addEventListener("mousemove", (event) => console.log("Eje X: ",event.clientX, "Eje Y: ", event.clientY));
+        let div3 = document.createElement("div");
+        div3.className = "coordenadas";
+        document.body.append(div3);
 
-        document.addEventListener("keydown", (event)=>event.key === "Enter"? alert("¡Se ha presionado enter!"):undefined);
+        div.addEventListener("mousemove", (event) => div3.innerHTML = ("Eje X: " + event.clientX + "Eje Y: " + event.clientY));
+
+        document.addEventListener("keydown", (event) => event.key === "Enter" ? alert("¡Se ha presionado enter!") : undefined);
+
+
+        //Afegir enunciat
+
+        //Div
+        let div2 = document.createElement("div");
+        //nom class
+        div2.setAttribute("class", "enunciat");
+
+        //titol
+        let parraf2 = document.createElement("h3");
+        parraf2.innerHTML = ("Resolución: ");
+
+        //imatges exercici i enunciat
+        let imgExercici = document.createElement("img");
+        imgExercici.src = "imatges/ex2.png";
+        let imgEnunciat = document.createElement("img");
+        imgEnunciat.src = "imatges/enunciat2.png";
+
+        //article
+        let articleNou2 = document.createElement("article");
+        articleNou2.append(parraf2);
+        div2.append(imgEnunciat);
+        div2.append(imgExercici);
+
+        articleNou2.append(div2);
+
+        //afegim al final del document.
+        document.body.append(articleNou2);
     </script>
 
     <style>
-        button{
+
+        .coordenadas{
+            margin-bottom: 5%;
+            margin-left: 20px;
+        }
+        button {
             width: 150px;
             height: 50px;
             margin: 20px;
         }
 
-        div{
+        #quadrat {
             width: 300px;
             height: 300px;
             background-color: black;
             margin: 20px;
+        }
+
+        article {
+            padding-bottom: 1%;
+            border: 2px solid black;
+        }
+
+        .enunciat {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h3 {
+            font-size: larger;
+        }
+
+        img {
+            width: 60rem;
+            padding: 1%;
         }
     </style>
 </body>

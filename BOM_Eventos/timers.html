@@ -5,27 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Ezequiel Carracedo">
-    <title>Ejercicio 3</title>
+    <title>Timers</title>
 </head>
 
 <body>
-    <div id="nave"></div>
+
 
 
     <script>
+        let esNegre = false;
+        let canviBackground = setInterval(() => {
+            let negre = document.body.style.background = esNegre ? "white" : "black";
+            esNegre = !esNegre;
 
-        let div = document.getElementById("nave");
-
-        document.addEventListener("mousemove", (event) => {
-            let finalPantalla = window.innerWidth - div.offsetWidth;
-            let posicio = event.clientX - (div.offsetWidth / 2);
-            if (posicio < 0) posicio = 0;
-            if (posicio > finalPantalla) posicio = finalPantalla;
-            div.style.left = posicio + "px";
-        });
+        }, 2000);
 
 
-         //Afegir enunciat
+
+
+        //Afegir enunciat
 
         //Div
         let div2 = document.createElement("div");
@@ -38,9 +36,9 @@
 
         //imatges exercici i enunciat
         let imgExercici = document.createElement("img");
-        imgExercici.src = "imatges/ex3.png";
+        imgExercici.src = "imatges/timer.png";
         let imgEnunciat = document.createElement("img");
-        imgEnunciat.src = "imatges/enunciat3.png";
+        imgEnunciat.src = "imatges/enunciatTimer.png";
 
         //article
         let articleNou2 = document.createElement("article");
@@ -57,14 +55,6 @@
     </script>
 
     <style>
-        #nave {
-            width: 100px;
-            height: 100px;
-            background-color: black;
-            position: fixed;
-            bottom: 0;
-        }
-
         article {
             padding-bottom: 1%;
             border: 2px solid black;

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ezequiel Carracedo">
+    <title>Nave</title>
+</head>
+
+<body>
+    <div id="nave"></div>
+
+
+    <script>
+
+        let div = document.getElementById("nave");
+
+
+        document.addEventListener("mousemove", (event) => {
+            let finalPantalla = window.innerWidth - div.offsetWidth;
+            let posicio = event.clientX - (div.offsetWidth / 2);
+            if (posicio < 0) posicio = 0;
+            if (posicio > finalPantalla) posicio = finalPantalla;
+            div.style.left = posicio + "px";
+        });
+
+        document.addEventListener("click", (event) => {
+            let bala = document.createElement("div");
+            bala.className = "bala";
+            document.body.append(bala);
+            bala.style.left = div.offsetLeft + div.offsetWidth/2 - bala.offsetWidth/2 + "px";
+            bala.style.bottom = "100px";
+
+            let trajectoria = 100;
+            let disparo = setInterval(() => {
+
+                trajectoria+=5;
+                if (trajectoria >window.innerHeight) {
+                    clearInterval(disparo);
+                    bala.remove();
+                }
+                else bala.style.bottom = trajectoria + "px";
+
+            }, 0.002)
+        })
+
+
+
+
+    </script>
+
+    <style>
+        #nave {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .bala {
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            position: fixed;
+        }
+    </style>
+</body>
+
+</html>
