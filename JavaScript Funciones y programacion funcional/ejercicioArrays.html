@@ -97,11 +97,11 @@
             ["Mercedes", "Calse D", 2011, 21221]
         ];
 
-        let cochesFiltrats = coches.filter(([marca, , ano,] = coche) => marca != "Kia" && marca != "Alfa Romeo" && 2026 - ano > 20);
 
+        let cochesFiltrats = coches.filter(([marca, , ano,] = coche) => marca != "Kia" && marca != "Alfa Romeo" && 2026 - ano > 20);
         console.log(cochesFiltrats);
 
-        let cochesOrdenats = cochesFiltrats.sort(([, , , preuA], [, , , preuB]) => preuB - preuA);
+        let cochesOrdenats = cochesFiltrats.sort(([, , , preuA] = cocheA, [, , , preuB] = cocheB) => preuB - preuA);
         console.log(cochesOrdenats);
 
         let cochesRebajados = coches.map(([marca, modelo, ano, preu]) => [marca, modelo, ano, preu - preu * 0.20]);
