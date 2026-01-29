@@ -29,14 +29,14 @@
             let bala = document.createElement("div");
             bala.className = "bala";
             document.body.append(bala);
-            bala.style.left = div.offsetLeft + div.offsetWidth/2 - bala.offsetWidth/2 + "px";
+            bala.style.left = div.offsetLeft + div.offsetWidth / 2 - bala.offsetWidth / 2 + "px";
             bala.style.bottom = "100px";
 
             let trajectoria = 100;
             let disparo = setInterval(() => {
 
-                trajectoria+=5;
-                if (trajectoria >window.innerHeight) {
+                trajectoria += 5;
+                if (trajectoria > window.innerHeight) {
                     clearInterval(disparo);
                     bala.remove();
                 }
