@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ezequiel Carracedo">
+    <title>Objetos genéricos - Ejercicio 2</title>
+</head>
+
+<body>
+
+    <script>
+        let tvSamsung = {
+            nombre: "TV Samsung 42",
+            categoria: "Televisores",
+            unidades: 4,
+            precio: 345.95
+        }
+
+        tvSamsung.getImport = function () {
+            return (this.unidades * tvSamsung.precio);
+        }
+
+        console.log(tvSamsung.getImport());
+
+        tvSamsung.getPropiedades = function () {
+            let resultat = ``
+            for (let dada in tvSamsung) {
+                if (dada != "getImport" && dada != "getPropiedades") {
+                    resultat += `${dada} = ${tvSamsung[dada]}  `;
+                }
+
+            }
+            return resultat;
+        }
+
+        console.log(tvSamsung.getPropiedades());
+
+        let objecteString = JSON.stringify(tvSamsung);
+        console.log(objecteString);
+
+
+
+
+        //Afegir enunciat
+
+        //Div
+        let div2 = document.createElement("div");
+        //nom class
+        div2.setAttribute("class", "enunciat");
+
+        //titol
+        let parraf2 = document.createElement("h3");
+        parraf2.innerHTML = ("Resolución: ");
+
+        //imatges exercici i enunciat
+        let imgExercici = document.createElement("img");
+        imgExercici.src = "imatges/ex2.png";
+        let imgEnunciat = document.createElement("img");
+        imgEnunciat.src = "imatges/enunciat2.png";
+
+        //article
+        let articleNou2 = document.createElement("article");
+        articleNou2.append(parraf2);
+        div2.append(imgEnunciat);
+        div2.append(imgExercici);
+
+        articleNou2.append(div2);
+
+        //afegim al final del document.
+        document.body.append(articleNou2);
+
+    </script>
+    <style>
+        article {
+            margin-top: 2%;
+            padding-bottom: 1%;
+            border: 2px solid black;
+        }
+
+        .enunciat {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h3 {
+            font-size: larger;
+        }
+
+        img {
+            width: 40rem;
+            padding: 1%;
+        }
+    </style>
+</body>
+
+</html>

@@ -147,20 +147,50 @@ let alumnos = JSON.parse(alumnosJSON);
 let table = document.createElement("table");
 table.border = "1";
 for (const alumno of alumnos) {
-    let fila = document.createElement("tr");
-    for (const key in alumno) {
-        if (key == "nombre" || key == "apellidos" || key == "dni") {
-            let dada = alumno[key];
+  let fila = document.createElement("tr");
+  for (const key in alumno) {
+    if (key == "nombre" || key == "apellidos" || key == "dni") {
+      let dada = alumno[key];
 
-            fila.innerHTML += "<td>" + dada + "</td>";
-        }
-
-
+      fila.innerHTML += "<td>" + dada + "</td>";
     }
-    table.append(fila);
-    document.body.append(table);
+
+
+  }
+  table.append(fila);
+  document.body.append(table);
 
 }
+
+
+
+//Afegir enunciat
+
+//Div
+let div2 = document.createElement("div");
+//nom class
+div2.setAttribute("class", "enunciat");
+
+//titol
+let parraf2 = document.createElement("h3");
+parraf2.innerHTML = ("Resolución: ");
+
+//imatges exercici i enunciat
+let imgExercici = document.createElement("img");
+imgExercici.src = "imatges/exAlumnes.png";
+let imgEnunciat = document.createElement("img");
+imgEnunciat.src = "imatges/enunciatAlumnes.png";
+
+//article
+let articleNou2 = document.createElement("article");
+articleNou2.append(parraf2);
+div2.append(imgEnunciat);
+div2.append(imgExercici);
+
+articleNou2.append(div2);
+
+//afegim al final del document.
+document.body.append(articleNou2);
 
 
 
