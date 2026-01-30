@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ezequiel Carracedo">
+    <title>Objetos genéricos - Ejercicio 4</title>
+</head>
+
+<body>
+
+    <script>
+
+        let coche = {
+            marca: "Toyota",
+            modelo: "Corolla",
+            año: 2020,
+            encendido: false
+        }
+
+        coche.arrancar = function (){
+            coche.encendido = true;
+            console.log("El cotxe s'ha encès");
+        }
+
+        coche.arrancar();
+
+        coche.apagar = function (){
+            coche.encendido = false;
+            console.log("El cotxe s'ha apagat");
+        }
+        coche.apagar();
+
+        coche.kilometraje = 0;
+
+        coche.recorrer = function(km){
+            coche.kilometraje+=km;
+            console.log(coche.kilometraje);
+        }
+
+        coche.recorrer(6);
+
+
+        //Afegir enunciat
+
+        //Div
+        let div2 = document.createElement("div");
+        //nom class
+        div2.setAttribute("class", "enunciat");
+
+        //titol
+        let parraf2 = document.createElement("h3");
+        parraf2.innerHTML = ("Resolución: ");
+
+        //imatges exercici i enunciat
+        let imgExercici = document.createElement("img");
+        imgExercici.src = "imatges/exCoche.png";
+        let imgEnunciat = document.createElement("img");
+        imgEnunciat.src = "imatges/enunciatCoche.png";
+
+        //article
+        let articleNou2 = document.createElement("article");
+        articleNou2.append(parraf2);
+        div2.append(imgEnunciat);
+        div2.append(imgExercici);
+
+        articleNou2.append(div2);
+
+        //afegim al final del document.
+        document.body.append(articleNou2);
+
+    </script>
+    <style>
+        article {
+            margin-top: 2%;
+            padding-bottom: 1%;
+            border: 2px solid black;
+        }
+
+        .enunciat {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h3 {
+            font-size: larger;
+        }
+
+        img {
+            width: 40rem;
+            padding: 1%;
+        }
+    </style>
+</body>
+
+</html>
