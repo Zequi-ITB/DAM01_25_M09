@@ -146,21 +146,31 @@ const alumnosJSON = `[
 let alumnos = JSON.parse(alumnosJSON);
 let table = document.createElement("table");
 table.border = "1";
+alumnos[0].mitjana = function () { };
+
+let fila = document.createElement("tr");
+for (let key in alumnos[0]) {
+  if (key === "mitjana") {
+    fila.innerHTML += "<th> mitjana </th>";
+  }
+  else fila.innerHTML += "<th>" + key + "</th>";
+}
+table.append(fila);
+
 for (const alumno of alumnos) {
+  alumno.mitjana = function () {
+    let mitjana = (alumno.notam2 + alumno.notam3 + alumno.notam4 + alumno.notam5 + alumno.notam6 + alumno.notam9)/6;
+    return mitjana;
+  }
   let fila = document.createElement("tr");
   for (const key in alumno) {
-    if (key == "nombre" || key == "apellidos" || key == "dni") {
-      let dada = alumno[key];
-
-      fila.innerHTML += "<td>" + dada + "</td>";
-    }
-
-
+    let dada = alumno[key];
+    if (typeof dada === "function") dada = dada();
+    fila.innerHTML += "<td>" + dada + "</td>";
   }
   table.append(fila);
-  document.body.append(table);
-
 }
+document.body.append(table);
 
 
 
@@ -178,14 +188,20 @@ parraf2.innerHTML = ("Resolución: ");
 //imatges exercici i enunciat
 let imgExercici = document.createElement("img");
 imgExercici.src = "imatges/exAlumnes.png";
+let imgExercici2 = document.createElement("img");
+imgExercici2.src = "imatges/exAlumnes2.png";
 let imgEnunciat = document.createElement("img");
 imgEnunciat.src = "imatges/enunciatAlumnes.png";
+let imgEnunciat2 = document.createElement("img");
+imgEnunciat2.src = "imatges/enunciatAlumnes2.png";
 
 //article
 let articleNou2 = document.createElement("article");
 articleNou2.append(parraf2);
 div2.append(imgEnunciat);
 div2.append(imgExercici);
+div2.append(imgEnunciat2);
+div2.append(imgExercici2);
 
 articleNou2.append(div2);
 

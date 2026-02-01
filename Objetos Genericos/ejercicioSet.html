@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ezequiel Carracedo">
+    <title>Objetos genéricos - Ejercicio 4</title>
+</head>
+
+<body>
+
+    <script>
+
+        //Ejercicio 1
+        function eliminarDuplicados(array) {
+            let nuevoSet = new Set(array);
+            let arraySinDuplicados = Array.from(nuevoSet);
+            return arraySinDuplicados;
+        }
+
+        const numeros = [1, 2, 3, 4, 4, 5, 6, 6, 7];
+        const numerosUnicos = eliminarDuplicados(numeros);
+        console.log(numerosUnicos);
+
+
+        //Ejercicio 2
+        function tienenElementosEnComun(array1, array2) {
+            let set1 = new Set(array1);
+            for (let num of array2) {
+                if(set1.has(num)) return true;
+            }
+            return false;
+        }
+
+        const array1 = [1, 2, 3, 4, 5];
+        const array2 = [4, 5, 6, 7, 8];
+        console.log(tienenElementosEnComun(array1, array2)); 
+
+
+
+        //Afegir enunciat
+
+        //Div
+        let div2 = document.createElement("div");
+        //nom class
+        div2.setAttribute("class", "enunciat");
+
+        //titol
+        let parraf2 = document.createElement("h3");
+        parraf2.innerHTML = ("Resolución: ");
+
+        //imatges exercici i enunciat
+        let imgExercici = document.createElement("img");
+        imgExercici.src = "imatges/exSet.png";
+        let imgEnunciat = document.createElement("img");
+        imgEnunciat.src = "imatges/enunciatSet.png";
+
+        //article
+        let articleNou2 = document.createElement("article");
+        articleNou2.append(parraf2);
+        div2.append(imgEnunciat);
+        div2.append(imgExercici);
+
+        articleNou2.append(div2);
+
+        //afegim al final del document.
+        document.body.append(articleNou2);
+
+    </script>
+    <style>
+        article {
+            margin-top: 2%;
+            padding-bottom: 1%;
+            border: 2px solid black;
+        }
+
+        .enunciat {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h3 {
+            font-size: larger;
+        }
+
+        img {
+            width: 40rem;
+            padding: 1%;
+        }
+    </style>
+</body>
+
+</html>
