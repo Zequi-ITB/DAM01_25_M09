@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ezequiel Carracedo">
+    <title>Objetos genéricos - Ejercicio 4</title>
+</head>
+
+<body>
+
+    <script>
+
+        //Ejercicoo 1
+        const modulos = ["m02", "m03", "m04", "m05", "m06", "m07", "m08", "FOL"]
+        const alumnoNotas = [[8, 9, 4], [9, 10], [6, 8, 10], [4], [8, 4, 7], [], [7, 5, 9, 10], [10]]
+
+        let map1 = new Map();
+        for (let it = 0; it < modulos.length; it++) {
+            map1.set(modulos[it], alumnoNotas[it])
+        }
+
+        map1.set("m07", [7.5, 6]);
+
+        console.log(map1);
+
+        //Ejercicio 2
+        let claves = new Set(modulos);
+
+
+
+        //Afegir enunciat
+
+        //Div
+        let div2 = document.createElement("div");
+        //nom class
+        div2.setAttribute("class", "enunciat");
+
+        //titol
+        let parraf2 = document.createElement("h3");
+        parraf2.innerHTML = ("Resolución: ");
+
+        //imatges exercici i enunciat
+        let imgExercici = document.createElement("img");
+        imgExercici.src = "imatges/exSet.png";
+        let imgEnunciat = document.createElement("img");
+        imgEnunciat.src = "imatges/enunciatSet.png";
+
+        //article
+        let articleNou2 = document.createElement("article");
+        articleNou2.append(parraf2);
+        div2.append(imgEnunciat);
+        div2.append(imgExercici);
+
+        articleNou2.append(div2);
+
+        //afegim al final del document.
+        document.body.append(articleNou2);
+
+    </script>
+    <style>
+        article {
+            margin-top: 2%;
+            padding-bottom: 1%;
+            border: 2px solid black;
+        }
+
+        .enunciat {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        h3 {
+            font-size: larger;
+        }
+
+        img {
+            width: 40rem;
+            padding: 1%;
+        }
+    </style>
+</body>
+
+</html>
