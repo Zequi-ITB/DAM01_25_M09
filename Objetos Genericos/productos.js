@@ -63,21 +63,87 @@ let productos = JSON.parse(productosJSON);
 console.log(productos);
 
 function muestraProducto() {
+  let contenidor = document.createElement("div");
+  contenidor.className = "contGeneral";
   for (let producto of productos) {
     let article = document.createElement('article');
+    let img = crearImagen(producto);
     let h2 = document.createElement("h2");
-    let img = document.createElement("img");
-    let div = document.createElement("div");
-    let talla = document.createElement("select");
     h2.textContent = producto.nombre;
-    img.src = producto.imagenes['blanco'];
+    let p = document.createElement("p");
+    p.textContent = producto.descripcion;
 
-    article.append(h2);
+    let preu = document.createElement("p");
+    preu.textContent = producto.precioBase;
+
     article.append(img);
-    document.body.append(article);
+    article.append(h2);
+    article.append(p);
+    article.append(preu);
+
+    let talla = crearTallas(producto);
+
+    article.append(talla);
+
+    let colors = crearColor(producto);
+    article.append(colors);
+
+    let boton = crearBoton();
+    article.append(boton);
+
+
+
+    contenidor.append(article);
   }
+  document.body.append(contenidor);
+
+
 
 }
+
+
+function crearImagen(producto) {
+  let img = document.createElement("img");
+  img.src = Object.values(producto.imagenes)[0];
+
+  return img;
+}
+
+
+function crearTallas(producto) {
+  let talla = document.createElement("select");
+  producto.tallas.forEach(t => {
+    let option = document.createElement("option");
+    option.textContent = t;
+    talla.append(option);
+  })
+
+  return talla;
+}
+
+function crearColor(producto) {
+  let contenidor = document.createElement("div");
+  let h3 = document.createElement("h3");
+  h3.textContent = "Color: "
+  contenidor.append(h3);
+  producto.colores.forEach(c => {
+    let color = document.createElement("div");
+    color.textContent = c;
+    contenidor.append(color);
+  })
+
+  return contenidor;
+}
+
+function crearBoton(){
+  let boton = document.createElement("div");
+  boton.className = "botonCarrito";
+  boton.textContent = "AÑADIR AL CARRITO";
+  
+  return boton;
+}
+
+
 
 muestraProducto();
 
