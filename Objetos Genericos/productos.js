@@ -123,14 +123,17 @@ function crearTallas(producto) {
 
 function crearColor(producto) {
   let contenidor = document.createElement("div");
-  let h3 = document.createElement("h3");
+  let contenidor2 = document.createElement("div");
+  contenidor2.className = "contColor";
+  let h3 = document.createElement("h4");
   h3.textContent = "Color: "
   contenidor.append(h3);
   producto.colores.forEach(c => {
     let color = document.createElement("div");
     color.textContent = c;
-    contenidor.append(color);
+    contenidor2.append(color);
   })
+  contenidor.append(contenidor2);
 
   return contenidor;
 }
