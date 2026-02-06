@@ -2,11 +2,13 @@ class Personaje {
     nombre;
     nivel;
     hp;
+    arma;
 
-    constructor(nombre, nivel, hp) {
+    constructor(nombre, nivel, hp, arma) {
         this.nombre = nombre;
         this.nivel = nivel;
         this.hp = hp;
+        this.arma = this.arma;
     }
 
 
@@ -29,8 +31,8 @@ class Personaje {
 class Guerrero extends Personaje {
     fuerza;
 
-    constructor(nombre, nivel, hp, fuerza) {
-        super(nombre, nivel, hp);
+    constructor(nombre, nivel, hp,arma, fuerza) {
+        super(nombre, nivel, hp, arma);
         this.fuerza = fuerza;
 
     }
@@ -50,9 +52,10 @@ class Guerrero extends Personaje {
 class Mago extends Personaje {
     mana;
 
-    constructor(nombre, nivel, hp, mana) {
-        super(nombre, nivel, hp);
+    constructor(nombre, nivel, hp,arma, mana ) {
+        super(nombre, nivel, hp, arma);
         this.mana = mana;
+    
     }
 
     //METODES
@@ -63,6 +66,24 @@ class Mago extends Personaje {
     atacar(personaje) {
         this.lanzarHechizo(personaje);
     }
+
+
+}
+
+
+class Espada{
+
+}
+
+class Hacha{
+
+}
+
+class BastonMagico{
+
+}
+
+class SinArma{
 
 
 }
