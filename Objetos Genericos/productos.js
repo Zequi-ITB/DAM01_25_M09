@@ -63,39 +63,38 @@ let productos = JSON.parse(productosJSON);
 console.log(productos);
 
 function muestraProducto() {
+  let section = document.createElement("section");
   let contenidor = document.createElement("div");
+  let titolBotiga = document.createElement("h2");
+  titolBotiga.textContent = "TeeLab - Tu tienda de camisetas"
   contenidor.className = "contGeneral";
+  section.appendChild(titolBotiga);
+  section.appendChild(contenidor);
   for (let producto of productos) {
     let article = document.createElement('article');
     let img = crearImagen(producto);
     let h2 = document.createElement("h2");
     h2.textContent = producto.nombre;
-    let p = document.createElement("p");
-    p.textContent = producto.descripcion;
 
-    let preu = document.createElement("p");
-    preu.textContent = producto.precioBase;
+    let contCos = crearCuerpoTarjeta(producto);
 
     article.append(img);
     article.append(h2);
-    article.append(p);
-    article.append(preu);
+
 
     let talla = crearTallas(producto);
-
-    article.append(talla);
+    contCos.append(talla);
 
     let colors = crearColor(producto);
-    article.append(colors);
+    contCos.append(colors);
 
+    article.append(contCos);
     let boton = crearBoton();
     article.append(boton);
 
-
-
     contenidor.append(article);
   }
-  document.body.append(contenidor);
+  document.body.append(section);
 
 
 
@@ -112,25 +111,37 @@ function crearImagen(producto) {
 
 function crearTallas(producto) {
   let talla = document.createElement("select");
+  let contTalla = document.createElement("div");
+  let titol = document.createElement("h4");
+  titol.textContent = "Talla: "
+  contTalla.append(titol);
   producto.tallas.forEach(t => {
     let option = document.createElement("option");
     option.textContent = t;
     talla.append(option);
   })
+  contTalla.className = "contTalla";
+  contTalla.append(talla);
 
-  return talla;
+  return contTalla;
 }
 
 function crearColor(producto) {
   let contenidor = document.createElement("div");
+  contenidor.className = "contGeneralColors";
   let contenidor2 = document.createElement("div");
+  let contTitol = document.createElement("div");
   contenidor2.className = "contColor";
-  let h3 = document.createElement("h4");
-  h3.textContent = "Color: "
-  contenidor.append(h3);
+  let h4 = document.createElement("h4");
+  h4.textContent = "Color: "
+  contTitol.append(h4);
+  contenidor.append(contTitol);
   producto.colores.forEach(c => {
     let color = document.createElement("div");
-    color.textContent = c;
+    let boton = document.createElement("button");
+    boton.className = "color"
+    boton.textContent = c;
+    color.append(boton);
     contenidor2.append(color);
   })
   contenidor.append(contenidor2);
@@ -138,12 +149,29 @@ function crearColor(producto) {
   return contenidor;
 }
 
-function crearBoton(){
-  let boton = document.createElement("div");
-  boton.className = "botonCarrito";
+function crearBoton() {
+  let contBoton = document.createElement("div");
+  let boton = document.createElement("button");
+  contBoton.className = "botonCarrito";
   boton.textContent = "AÑADIR AL CARRITO";
-  
-  return boton;
+  contBoton.appendChild(boton);
+
+  return contBoton;
+}
+
+function crearCuerpoTarjeta(producto) {
+  let contCos = document.createElement("div");
+  contCos.className = "contenidorCos";
+
+  let p = document.createElement("p");
+  p.textContent = producto.descripcion;
+  let preu = document.createElement("p");
+  preu.className = "preu";
+  preu.textContent = producto.precioBase + "€";
+  contCos.append(p);
+  contCos.append(preu);
+
+  return contCos;
 }
 
 

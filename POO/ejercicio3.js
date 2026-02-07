@@ -72,26 +72,88 @@ class Mago extends Personaje {
 
 
 class Espada {
+    nom = "ESPADA";
+    ataque;
+    constructor(ataque) {
+        this.ataque = ataque;
+    }
 
+    get getAtaque() {
+        return this.ataque;
+    }
+
+    get getNom() {
+        return this.nom;
+    }
 }
 
 class Hacha {
+    nom = "HACHA";
+    ataque;
+    constructor(ataque) {
+        this.ataque = ataque;
+    }
 
+    get getAtaque() {
+        return this.ataque;
+    }
+
+    get getNom() {
+        return this.nom;
+    }
 }
+
 
 class BastonMagico {
+    nom = "BASTON MAGICO";
+    ataque;
+    constructor(ataque) {
+        this.ataque = ataque;
+    }
 
+    get getAtaque() {
+        return this.ataque;
+    }
+
+    get getNom() {
+        return this.nom;
+    }
 }
+
 
 class SinArma {
+    nom = "SIN ARMA";
+    ataque = 0;
 
+    get getNom() {
+        return this.nom;
+    }
 
 }
+
+class Cofre {
+    llistatArmas = [new BastonMagico(50), new Hacha(70), new Espada(60), new SinArma()];
+
+    recogerArma(nombre) {
+        this.llistatArmas.forEach(arma => {
+            if (arma.getNom() === nombre) {
+                return arma;
+            }
+        })
+
+
+    }
+
+}
+
+
 
 function main() {
 
+
+
+
     let guerrero = new Guerrero("Guerrero1", 35, 1500, 250);
-    console.log(guerrero.toString());
 
     let guerrero2 = new Guerrero("Guerrero2", 46, 1800, 350);
 
