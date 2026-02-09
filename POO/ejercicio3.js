@@ -2,13 +2,15 @@ class Personaje {
     nombre;
     nivel;
     hp;
-    arma;
+    arma = Cofre.llistatArmas[3];
+    armas = [];
 
-    constructor(nombre, nivel, hp, arma) {
+    constructor(nombre, nivel, hp) {
         this.nombre = nombre;
         this.nivel = nivel;
         this.hp = hp;
         this.arma = this.arma;
+        this.armas.push(this.arma);
     }
 
 
@@ -24,6 +26,10 @@ class Personaje {
         return this.nivel;
     }
 
+    equiparArma(nombre) {
+        this.arma =  this.armas.find(arma => arma.getNom === nombre);
+    }
+
 
 }
 
@@ -31,10 +37,9 @@ class Personaje {
 class Guerrero extends Personaje {
     fuerza;
 
-    constructor(nombre, nivel, hp, arma, fuerza) {
-        super(nombre, nivel, hp, arma);
+    constructor(nombre, nivel, hp, fuerza) {
+        super(nombre, nivel, hp);
         this.fuerza = fuerza;
-
     }
 
     //METODES
@@ -52,8 +57,8 @@ class Guerrero extends Personaje {
 class Mago extends Personaje {
     mana;
 
-    constructor(nombre, nivel, hp, arma, mana) {
-        super(nombre, nivel, hp, arma);
+    constructor(nombre, nivel, hp,mana) {
+        super(nombre, nivel, hp);
         this.mana = mana;
 
     }
@@ -66,6 +71,8 @@ class Mago extends Personaje {
     atacar(personaje) {
         this.lanzarHechizo(personaje);
     }
+
+    
 
 
 }
@@ -132,19 +139,14 @@ class SinArma {
 }
 
 class Cofre {
-    llistatArmas = [new BastonMagico(50), new Hacha(70), new Espada(60), new SinArma()];
+    static llistatArmas = [new BastonMagico(50), new Hacha(70), new Espada(60), new SinArma()];
 
-    recogerArma(nombre) {
-        this.llistatArmas.forEach(arma => {
-            if (arma.getNom() === nombre) {
-                return arma;
-            }
-        })
-
-
+    static recogerArma(nombre) {
+        return Cofre.llistatArmas.find(arma => arma.getNom === nombre); 
     }
-
 }
+
+
 
 
 
@@ -157,7 +159,8 @@ function main() {
 
     let guerrero2 = new Guerrero("Guerrero2", 46, 1800, 350);
 
-    let mago = new Mago("Mago1", 42, 1750, 400);
+    let mago = new Mago("Mago1", 42, 1750,400);
+
 
     let arrayPersonajes = [];
 
@@ -169,12 +172,18 @@ function main() {
 
         personaje.atacar(arrayPersonajes[1]);
 
-
     });
 
     arrayPersonajes.sort((a, b) => a - b);
 
     console.log(arrayPersonajes)
+
+
+    guerrero.armas.push(Cofre.recogerArma("ESPADA"));
+    console.log(guerrero);
+
+    guerrero.equiparArma("ESPADA");
+    console.log(guerrero);
 }
 
 main();
