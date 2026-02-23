@@ -32,19 +32,24 @@ const server = createServer((req, res) => {
   //Buscamos la info de un alumno completo.
   if (req.method === "GET" && req.url.startsWith("/students/")) {
 
-    // 1. Extraer id de la URL
+    console.log("antes" + req.url);
+    //1. Extraer id de la URL
     let url = req.url.split("/");
-    let id = url[url.length-1];
-    
-    // 2. Buscar alumno en el array
-    for(let it in students){
-      if(id == it.id){
-        return sendJson(it, 200, students);
-      }
-      else return "200 ERROR"
-    }
+    let id = url[url.length - 1];
+    console.log(id);
 
+    // 2. Buscar alumno en el array
+    let trobat = false;
+    for (let student of students) {
+      if (id == student.id) {
+        trobat = true;
+        return sendJson(res, 200, student);
+      }
+    }
     // 3. Si no existe → 404
+    if (!trobat) {
+      return sendJson(res, 404, { missatge: "ERROR" });
+    }
     // 4. Si existe → devolver 200 + alumno
 
   }
@@ -53,7 +58,16 @@ const server = createServer((req, res) => {
   if (req.method === "DELETE" && req.url.startsWith("/students/")) {
 
     // 1. Extraer id
+    let url = req.url.split("/");
+    let id = url[url.length - 1];
+    console.log(id);
     // 2. Comprobar si existe
+     for (let student of students) {
+      if (id == student.id) {
+        trobat = true;
+        
+      }
+    }
     // 3. Eliminarlo del array
     // 4. Si no existe → 404
     // 5. Si se elimina → 204 (sin body)

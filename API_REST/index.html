@@ -34,11 +34,13 @@
 
     <h1>Ejemplo2: Listado de estudiantes</h1>
     <button id="btnStudents">Cargar estudiantes</button>
+    <button id="btnStudent">Cargar un estudiante</button>
     <div id="resultadoEstudiantes"></div>
 
     <script>
         document.getElementById("btn").addEventListener("click", conectar);
         document.getElementById("btnStudents").addEventListener("click", cargarEstudiantes);
+        document.getElementById("btnStudent").addEventListener("click", cargarEstudiante);
 
         //Conectamos y nos devuelve un texto
         async function conectar() {
@@ -91,6 +93,25 @@
 
                 contenedor.appendChild(div);
             });
+        }
+
+
+        //Conetamos y nos devuelve un json
+        async function cargarEstudiante(id="A001") {
+            try {
+                const response = await fetch( `http://localhost:3001/students/${id}`);
+
+                if (!response.ok) {
+                    throw new Error("Error HTTP: " + response.status);
+                }
+                // Lee el cuerpo y lo parsea automáticamente a objeto JS
+                const students = await response.json();
+                muestraEstudiantes(students);
+
+            } catch (error) {
+                contenedor.innerHTML =
+                    `<p class="error">Error: ${error.message}</p>`;
+            }
         }
 
 
