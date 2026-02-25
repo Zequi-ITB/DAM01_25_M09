@@ -48,7 +48,7 @@ const server = createServer((req, res) => {
     }
     // 3. Si no existe → 404
     if (!trobat) {
-      return sendJson(res, 404, { missatge: "ERROR" });
+      return sendJson(res, 404, { missatge: "Not Found" });
     }
     // 4. Si existe → devolver 200 + alumno
 
@@ -56,19 +56,28 @@ const server = createServer((req, res) => {
 
   // TODO 2: DELETE /students/:id
   if (req.method === "DELETE" && req.url.startsWith("/students/")) {
+    let trobat = false;
 
     // 1. Extraer id
     let url = req.url.split("/");
     let id = url[url.length - 1];
     console.log(id);
     // 2. Comprobar si existe
-     for (let student of students) {
+    for (let student of students) {
       if (id == student.id) {
         trobat = true;
-        
       }
     }
     // 3. Eliminarlo del array
+    if (trobat) {
+      students = students.filter(student => student.id != id)
+      res.statusCode = 204;
+      return res.end();
+    }
+    else {
+      return sendJson(res, 404, { missatge: "Estudiant no trobat." })
+    }
+
     // 4. Si no existe → 404
     // 5. Si se elimina → 204 (sin body)
 
@@ -77,6 +86,22 @@ const server = createServer((req, res) => {
   if (req.method === "POST" && req.url === "/students") {
 
     // 1. Leer el body con readBody() --> Es donde esta toda la info del nuevo alumno.
+    return readBody(req, (err, alumno) => {
+      if (err) {
+        return sendJson(res, 400, { message: "JSON inválido" });
+      }
+      if (!alumno.id || !alumno.nombre || !alumno.curso) {
+        return sendJson(res, 400, { message: "Falten camps" });
+      }
+      if (students.some(student => student.id === alumno.id)) {
+        return sendJson(res, 409, { message: "L'id no pot estar repetit" });
+      }
+
+      students.push(alumno);
+
+      return sendJson(res, 201, alumno);
+
+    })
     // 2. Validar que tenga id, nombre y curso
     // 3. Comprobar que el id no esté repetido
     // 4. Añadir al array students
@@ -124,6 +149,10 @@ function readBody(req, callback) {
     } catch (err) {
       callback(err);
     }
+  });
+
+  req.on("error", err => {
+    callback(err);
   });
 }
 

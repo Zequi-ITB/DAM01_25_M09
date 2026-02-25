@@ -61,6 +61,7 @@
 
         //Conetamos y nos devuelve un json
         async function cargarEstudiantes() {
+            const contenedor = document.getElementById("resultadoEstudiantes");
             try {
                 const response = await fetch("http://localhost:3001/students");
 
@@ -79,6 +80,7 @@
 
 
         function muestraEstudiantes(students) {
+
             const contenedor = document.getElementById("resultadoEstudiantes");
             contenedor.innerHTML = "";
             students.forEach(student => {
@@ -97,16 +99,20 @@
 
 
         //Conetamos y nos devuelve un json
-        async function cargarEstudiante(id="A001") {
+        async function cargarEstudiante() {
+            let id = "A002"
+            const contenedor = document.getElementById("resultadoEstudiantes");
             try {
-                const response = await fetch( `http://localhost:3001/students/${id}`);
+                const response = await fetch("http://localhost:3001/students/" + id);
 
                 if (!response.ok) {
                     throw new Error("Error HTTP: " + response.status);
                 }
                 // Lee el cuerpo y lo parsea automáticamente a objeto JS
-                const students = await response.json();
+                const students = [await response.json()];
+
                 muestraEstudiantes(students);
+
 
             } catch (error) {
                 contenedor.innerHTML =
@@ -120,4 +126,3 @@
 </body>
 
 </html>
-
