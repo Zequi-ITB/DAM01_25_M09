@@ -14,6 +14,7 @@ app.use((req, res, next) => {
 
 // Rutas
 app.use('/students', studentsRouter);
+app.use('/notas', notasRouter);
 
 
 // Middleware de errores
@@ -22,11 +23,10 @@ app.use((err, req, res, next) => {
  res.status(500).json({ message: "Error interno" });
 });
 
-
-//Escoltem peticions
 app.listen(PORT, () => {
  console.log(`Servidor corriendo en http://localhost:${PORT}/`);
 });
+
 
 
 
