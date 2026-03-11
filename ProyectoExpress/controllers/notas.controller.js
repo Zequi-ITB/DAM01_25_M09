@@ -8,7 +8,7 @@ export function getAll(req, res) {
 
 
 export function getById(req, res) {
- const nota = notasService.getById(req.params.studentId);
+ const nota = notasService.getById(req.params.id);
 
  if (!nota) return res.status(404).json({ message: "Not Found" });
  res.json(nota);
@@ -30,7 +30,7 @@ export function create(req, res) {
 
 
 export function update(req, res) {
- const updated = notasService.update(req.params.id, req.body);
+ const updated = notasService.update(Number(req.params.id), req.body);
 
  if (!updated) return res.status(404).json({ message: "Not Found" });
  res.json(updated);
@@ -38,7 +38,7 @@ export function update(req, res) {
 
 
 export function remove(req, res) {
- const deleted = notasService.remove(req.params.id);
+ const deleted = notasService.remove(Number(req.params.id));
 
  if (!deleted) return res.status(404).json({ message: "Not Found" });
  res.sendStatus(204);

@@ -8,6 +8,7 @@ function validateStudent(obj) {
 }
 // Comprueba si el id ya existe
 const existsId = (id) => students.some(s => s.id === id);
+
 export function getAll() {
  return students;
 }
