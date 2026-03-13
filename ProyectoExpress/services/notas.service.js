@@ -1,6 +1,6 @@
 import { nextId, notas } from '../data/notas.js';
 import { students } from '../data/students.js';
-import{incrementarId} from '../data/notas.js';
+import { incrementarId } from '../data/notas.js';
 
 // Valida campos mínimos
 function validateNota(obj) {
@@ -34,7 +34,7 @@ export function create(notaNew) {
   notas.push(notaCreada);
 
   incrementarId();
-  console.log(nextId);
+
   return { data: notaCreada };
 }
 
