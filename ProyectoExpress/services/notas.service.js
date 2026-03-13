@@ -21,7 +21,11 @@ export function getAll() {
 
 //Busquem les notes d'un alumne amb el seu id
 export function getById(id) {
-  return notas.find(s => s.studentId == id);
+  if (existsIdAlumno(id)) {
+    return notas.filter(s => s.studentId == id);
+  }
+  return { error: "id de alumno no valido", status: 409 };
+
 }
 
 export function create(notaNew) {
@@ -44,7 +48,6 @@ export function update(id, payload) {
   if (idx === -1) return null;
 
   if (payload && typeof payload === "object") {
-    if (payload.modulo !== undefined) notas[idx].modulo = payload.modulo;
     if (payload.nota !== undefined) notas[idx].nota = payload.nota;
   }
 

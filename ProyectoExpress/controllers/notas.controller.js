@@ -3,44 +3,45 @@ import * as notasService from '../services/notas.service.js';
 
 
 export function getAll(req, res) {
- res.json(notasService.getAll());
+  res.json(notasService.getAll());
 }
 
 
 export function getById(req, res) {
- const nota = notasService.getById(req.params.id);
+  const nota = notasService.getById(req.params.id);
 
- if (!nota) return res.status(404).json({ message: "Not Found" });
- res.json(nota);
+  if (!nota) return res.status(404).json({ message: "Not Found" });
+  if (nota.length == 0) return res.status(404).json({ message: "ALUMNO SIN NOTAS" });
+  res.json(nota);
 }
 
 
 
 export function create(req, res) {
- const result = notasService.create(req.body);
+  const result = notasService.create(req.body);
 
- if (result.error) {
-   const status = result.status || 400;
-   return res.status(status).json({ message: result.error });
- }
+  if (result.error) {
+    const status = result.status || 400;
+    return res.status(status).json({ message: result.error });
+  }
 
- res.status(201).json({ message: "Created", nota: result.data });
+  res.status(201).json({ message: "Created", nota: result.data });
 }
 
 
 
 export function update(req, res) {
- const updated = notasService.update(Number(req.params.id), req.body);
+  const updated = notasService.update(Number(req.params.id), req.body);
 
- if (!updated) return res.status(404).json({ message: "Not Found" });
- res.json(updated);
+  if (!updated) return res.status(404).json({ message: "Not Found" });
+  res.json(updated);
 }
 
 
 export function remove(req, res) {
- const deleted = notasService.remove(Number(req.params.id));
+  const deleted = notasService.remove(Number(req.params.id));
 
- if (!deleted) return res.status(404).json({ message: "Not Found" });
- res.sendStatus(204);
+  if (!deleted) return res.status(404).json({ message: "Not Found" });
+  res.sendStatus(204);
 }
 

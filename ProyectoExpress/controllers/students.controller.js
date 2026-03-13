@@ -11,6 +11,7 @@ export function getById(req, res) {
  const student = studentsService.getById(req.params.id);
 
  if (!student) return res.status(404).json({ message: "Not Found" });
+
  res.json(student);
 }
 
