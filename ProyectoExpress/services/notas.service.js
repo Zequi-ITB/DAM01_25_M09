@@ -1,10 +1,12 @@
-import { notas } from '../data/notas.js';
+import { nextId, notas } from '../data/notas.js';
 import { students } from '../data/students.js';
+import{incrementarId} from '../data/notas.js';
 
 // Valida campos mínimos
 function validateNota(obj) {
   if (!obj || typeof obj !== "object") return "Body inválido";
-  if (!obj.id || !obj.studentId || !obj.modulo || !obj.nota) return "Faltan campos.";
+  if (!obj.studentId || !obj.modulo || !obj.nota) return "Faltan campos.";
+  if (obj.nota < 0 || obj.nota > 10) return "Nota invalida";
   return null;
 }
 // Comprueba si el id ya existe
@@ -26,10 +28,14 @@ export function create(notaNew) {
   const validationMsg = validateNota(notaNew);
   if (validationMsg) return { error: validationMsg };
   if (!existsIdAlumno(notaNew.studentId)) return { error: "id de alumno no valido", status: 409 };
-  if (existsId(notaNew.id)) return { error: "id ya existe", status: 409 };
+  //if (existsId(notaNew.id)) return { error: "id ya existe", status: 409 };
+  let notaCreada = { id: nextId, studentId: notaNew.studentId, modulo: notaNew.modulo, nota: notaNew.nota };
 
-  notas.push({ id: notaNew.id, studentId: notaNew.studentId, modulo: notaNew.modulo, nota: notaNew.nota });
-  return { data: notaNew };
+  notas.push(notaCreada);
+
+  incrementarId();
+  console.log(nextId);
+  return { data: notaCreada };
 }
 
 
