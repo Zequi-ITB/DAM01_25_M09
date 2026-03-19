@@ -12,24 +12,28 @@ export function getAll() {
 }
 
 
-
 export function getById(id) {
-
   return JSON.parse(productosJSON).filter(s => s.id === id);
-
 
 }
 
-export function comprovarCamiseta(idComprovar, tallaComprovar, colorComprovar) {
 
+//Validacions camisetes
+export function comprovarIdCamiseta(idComprovar) {
   if (!existsId(idComprovar)) return false;
-  else {
-    let camiseta = JSON.parse(productosJSON).filter(s => s.id === idComprovar);
-    if (!camiseta[0].tallas.some(talla == tallaComprovar)) return false;
-    else if (!camiseta[0].colores.some(color == colorComprovar)) return false;
-    else return true;
-  }
+  return true
+}
 
+export function comprovarColorCamiseta(idComprovar, colorComprovar) {
+  let camiseta = JSON.parse(productosJSON).filter(s => s.id === idComprovar);
+  if (!camiseta[0].colores.some(color => color === colorComprovar)) return false;
+  return true
+}
+
+export function comprovarTallaCamiseta(idComprovar, tallaComprovar) {
+  let camiseta = JSON.parse(productosJSON).filter(s => s.id === idComprovar);
+  if (!camiseta[0].tallas.some(talla => talla === tallaComprovar)) return false;
+  return true
 }
 
 
