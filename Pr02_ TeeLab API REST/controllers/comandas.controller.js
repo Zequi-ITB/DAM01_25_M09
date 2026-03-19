@@ -2,9 +2,6 @@ import * as comandasService from '../services/comandas.service.js';
 
 
 
-
-
-
 export function create(req, res) {
  const result = comandasService.create(req.body);
 

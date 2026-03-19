@@ -3,8 +3,8 @@ import * as camisetasController from '../controllers/camisetas.controller.js';
 
 const router = Router();
 
-router.get("/", camisetasController.getAll);
-router.get("/:id",camisetasController.getById);
+router.get("/", camisetasController.getAllCamisetas);
+router.get("/:id",camisetasController.getCamisetaById);
 
 
 export default router;

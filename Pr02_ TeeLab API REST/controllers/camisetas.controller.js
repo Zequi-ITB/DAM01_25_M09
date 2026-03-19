@@ -1,17 +1,19 @@
 import * as camisetasService from '../services/camisetas.service.js';
 
 
+export function getAllCamisetas(res) {
 
+  let productes = camisetasService.getAll()
+  if (productes.size < 1) res.status(404).json({ error: "No hay camisetas" });
+  res.json();
 
-export function getAll(req, res) {
-  res.json(camisetasService.getAll());
 }
 
 
-export function getById(req, res) {
+export function getCamisetaById(req, res) {
   const camiseta = camisetasService.getById(req.params.id);
 
-  if (!camiseta) return res.status(404).json({ message: camiseta.message });
+  if (!camiseta || camiseta.length <1) res.status(404).json({ message: "Camiseta no encontrada" });
 
   res.json(camiseta);
 }
