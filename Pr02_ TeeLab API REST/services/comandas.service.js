@@ -33,7 +33,7 @@ export function create(comandaNew) {
     comandaNew.items.forEach(camiseta => {camiseta.precioUnitario = camisetasService.getById(camiseta.camisetaId)[0].precioBase});
 
 
-    //let totalPreu;
+    let totalPreu = comandaNew.items.reduce(camiseta, total => total + camiseta.precioUnitario );
 
     let comanda = {
         id: `ORD-000${nextId}`,
@@ -42,7 +42,7 @@ export function create(comandaNew) {
         items: [
             comandaNew.items
         ],
-        "total": 20
+        "total": totalPreu
     }
 
     
