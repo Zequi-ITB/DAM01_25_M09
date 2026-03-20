@@ -10,8 +10,6 @@ function validateNota(obj) {
   return null;
 }
 // Comprueba si el id ya existe
-const existsId = (id) => notas.some(s => s.id === id);
-
 const existsIdAlumno = (id) => students.some(s => s.id === id);
 
 export function getAll() {
@@ -32,7 +30,6 @@ export function create(notaNew) {
   const validationMsg = validateNota(notaNew);
   if (validationMsg) return { error: validationMsg };
   if (!existsIdAlumno(notaNew.studentId)) return { error: "id de alumno no valido", status: 409 };
-  //if (existsId(notaNew.id)) return { error: "id ya existe", status: 409 };
   let notaCreada = { id: nextId, studentId: notaNew.studentId, modulo: notaNew.modulo, nota: notaNew.nota };
 
   notas.push(notaCreada);

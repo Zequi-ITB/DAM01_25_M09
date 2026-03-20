@@ -3,10 +3,8 @@ import * as comandasController from '../controllers/comandas.controller.js';
 
 const router = Router();
 
-//router.get("/", comandasController.getAll);
-//router.get("/:id", comandasController.getById);
+router.get("/", comandasController.getAllComandas);
+router.get("/:id", comandasController.getComandaById);
 router.post("/", comandasController.create);
-//router.put("/:id", comandasController.update);
-//router.delete("/:id", comandasController.remove);
 
 export default router;
