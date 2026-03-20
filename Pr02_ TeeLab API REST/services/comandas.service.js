@@ -1,6 +1,6 @@
 import * as camisetasService from '../services/camisetas.service.js';
 import { comandas } from '../data/comandas.js';
-import { nextId } from '../data/comandas.js';
+import { nextId, incrementarId } from '../data/comandas.js';
 
 
 export function getAll() {
@@ -45,7 +45,9 @@ export function create(comandaNew) {
         "total": 20
     }
 
+    
 
+    incrementarId();
     comandas.push(comanda);
     return { data: comandaNew };
 }
