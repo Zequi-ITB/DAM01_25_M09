@@ -33,7 +33,7 @@ export function create(comandaNew) {
     comandaNew.items.forEach(camiseta => {camiseta.precioUnitario = camisetasService.getById(camiseta.camisetaId)[0].precioBase});
 
 
-    let totalPreu = comandaNew.items.reduce(camiseta, total => total + camiseta.precioUnitario );
+    let totalPreu = comandaNew.items.reduce((total, camiseta) => total + camiseta.precioUnitario,0 );
 
     let comanda = {
         id: `ORD-000${nextId}`,
@@ -45,9 +45,8 @@ export function create(comandaNew) {
         "total": totalPreu
     }
 
-    
 
     incrementarId();
     comandas.push(comanda);
-    return { data: comandaNew };
+    return { data: comanda };
 }

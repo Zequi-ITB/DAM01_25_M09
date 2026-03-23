@@ -11,6 +11,24 @@ export function getAll() {
   return productes;
 }
 
+export function getAllFilter(req) {
+  if (req.query.talla) {
+    return JSON.parse(productosJSON).filter(camiseta => camiseta.tallas.some(talla => talla === req.query.talla));
+  }
+  if (req.query.color) {
+    return JSON.parse(productosJSON).filter(camiseta => camiseta.color.some(color => color === req.query.color));
+  }
+  if (req.query.tag) {
+    return JSON.parse(productosJSON).filter(camiseta => camiseta.tags.some(tag => tag === req.query.tag));
+  }
+  if (req.query.q) {
+
+  }
+
+
+
+}
+
 
 export function getById(id) {
   return JSON.parse(productosJSON).filter(s => s.id === id);

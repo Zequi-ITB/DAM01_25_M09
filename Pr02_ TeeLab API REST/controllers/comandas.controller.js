@@ -12,9 +12,9 @@ export function getAllComandas(req, res) {
 export function getComandaById(req, res) {
   const comanda = comandasService.getById(req.params.id);
 
-  if (!comanda || comanda.length < 1) res.status(404).json({ message: "Comanda no encontrada" });
+  if (!comanda || comanda.length < 1) return res.status(404).json({ message: "Comanda no encontrada" });
 
-  res.json(comanda);
+  return res.json(comanda);
 }
 
 export function create(req, res) {
