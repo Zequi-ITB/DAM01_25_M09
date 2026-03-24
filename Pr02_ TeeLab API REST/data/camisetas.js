@@ -1,4 +1,4 @@
-export const productosJSON = `[
+export const productosJSON = JSON.parse(`[
   {
     "id": "TSH01",
     "nombre": "MACACARENA",
@@ -53,4 +53,4 @@ export const productosJSON = `[
     "tags": ["premium"]
   }
 ]
-`;
+`);

@@ -3,12 +3,8 @@ import * as camisetasService from '../services/camisetas.service.js';
 
 export function getAllCamisetas(req, res) {
 
-  let productes = camisetasService.getAll();
-  if (productes.size < 1) return res.status(404).json({ error: "No hay camisetas" });
-
-  if (Object.keys(req.query).length !== 0) {
-  return camisetasService.getAllFilter(req);
-  }
+  let productes = camisetasService.getAll(req);
+  if (!productes || productes.length < 1) return res.status(404).json({ error: "No hay camisetas" });
 
   return res.json(productes);
 
@@ -23,7 +19,8 @@ export function getCamisetaById(req, res) {
   res.json(camiseta);
 }
 
-expo
+
+
 
 
 

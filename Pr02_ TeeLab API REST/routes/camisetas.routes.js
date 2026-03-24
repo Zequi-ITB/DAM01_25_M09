@@ -7,4 +7,5 @@ router.get("/", camisetasController.getAllCamisetas);
 router.get("/:id",camisetasController.getCamisetaById);
 
 
+
 export default router;

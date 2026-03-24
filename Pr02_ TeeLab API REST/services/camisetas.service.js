@@ -5,33 +5,36 @@ import { productosJSON } from '../data/camisetas.js';
 const existsId = (id) => JSON.parse(productosJSON).some(s => s.id === id);
 
 
-export function getAll() {
-  let productes = JSON.parse(productosJSON);
+export function getAll(req) {
 
-  return productes;
-}
-
-export function getAllFilter(req) {
   if (req.query.talla) {
-    return JSON.parse(productosJSON).filter(camiseta => camiseta.tallas.some(talla => talla === req.query.talla));
+    return productosJSON.filter(camiseta => camiseta.tallas.some(talla => talla === req.query.talla));
   }
   if (req.query.color) {
-    return JSON.parse(productosJSON).filter(camiseta => camiseta.color.some(color => color === req.query.color));
+    return productosJSON.filter(camiseta => camiseta.colores.some(color => color === req.query.color));
   }
   if (req.query.tag) {
-    return JSON.parse(productosJSON).filter(camiseta => camiseta.tags.some(tag => tag === req.query.tag));
+    return productosJSON.filter(camiseta => camiseta.tags.some(tag => tag === req.query.tag));
   }
   if (req.query.q) {
-
+    const textEscapat = escaparRegex(req.query.q);
+    const regex = new RegExp(textEscapat, "i");
+    const resultats = productosJSON.filter(camiseta => {
+      return regex.test(String(camiseta.nombre || ""));
+    })
+    return resultats;
   }
 
+  return productosJSON;
+}
 
-
+function escaparRegex(text) {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 
 export function getById(id) {
-  return JSON.parse(productosJSON).filter(s => s.id === id);
+  return productosJSON.filter(s => s.id === id);
 
 }
 
