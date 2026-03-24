@@ -4,7 +4,7 @@ import * as comandasService from '../services/comandas.service.js';
 
 export function getAllComandas(req, res) {
   let comandas = comandasService.getAll()
-  if (comandas.length < 1) res.status(404).json({ error: "No hay comandas" });
+  if (comandas.length < 1) return res.status(404).json({ error: "No hay comandas" });
   res.json(comandas);
 }
 
