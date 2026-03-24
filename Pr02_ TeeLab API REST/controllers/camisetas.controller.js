@@ -4,10 +4,14 @@ import * as camisetasService from '../services/camisetas.service.js';
 export function getAllCamisetas(req, res) {
 
   let productes = camisetasService.getAll(req);
+
+  let productosSorted;
   if (!productes || productes.length < 1) return res.status(404).json({ error: "No hay camisetas" });
 
-  return res.json(productes);
-
+  if(req.sort){
+    productosSorted = camisetasService.sortCamisetes(req, productes);
+  }
+  return res.json(productosSorted);
 }
 
 

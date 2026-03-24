@@ -28,6 +28,20 @@ export function getAll(req) {
   return productosJSON;
 }
 
+export function sortCamisetes(sort, camisetas) {
+const copia = [...camisetas];
+  switch (sort) {
+    case "precio_asc": return copia.sort((a, b) => a.precio - b.precio)
+    
+    case "precio_desc": return copia.sort((a, b) => b.precio - a.precio);
+
+    case "nombre_asc": return copia.sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+    case "nombre_desc": return copia.sort((a, b) => b.nombre.localeCompare(a.nombre));
+
+  }
+}
+
 function escaparRegex(text) {
   return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -46,13 +60,13 @@ export function comprovarIdCamiseta(idComprovar) {
 }
 
 export function comprovarColorCamiseta(idComprovar, colorComprovar) {
-  let camiseta = JSON.parse(productosJSON).filter(s => s.id === idComprovar);
+  let camiseta = productosJSON.filter(s => s.id === idComprovar);
   if (!camiseta[0].colores.some(color => color === colorComprovar)) return false;
   return true
 }
 
 export function comprovarTallaCamiseta(idComprovar, tallaComprovar) {
-  let camiseta = JSON.parse(productosJSON).filter(s => s.id === idComprovar);
+  let camiseta = productosJSON.filter(s => s.id === idComprovar);
   if (!camiseta[0].tallas.some(talla => talla === tallaComprovar)) return false;
   return true
 }
