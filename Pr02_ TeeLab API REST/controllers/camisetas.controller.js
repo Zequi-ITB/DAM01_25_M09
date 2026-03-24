@@ -5,13 +5,16 @@ export function getAllCamisetas(req, res) {
 
   let productes = camisetasService.getAll(req);
 
-  let productosSorted;
+
   if (!productes || productes.length < 1) return res.status(404).json({ error: "No hay camisetas" });
 
-  if(req.sort){
-    productosSorted = camisetasService.sortCamisetes(req, productes);
+  if(req.query.sort){
+    const productosSorted = camisetasService.sortCamisetes(req.query.sort, productes);
+    if(productosSorted == false) return res.status(400).json({ message: "Parametro de sort incorrecto" });
+    return res.json(productosSorted);
   }
-  return res.json(productosSorted);
+
+  return res.json(productes);
 }
 
 

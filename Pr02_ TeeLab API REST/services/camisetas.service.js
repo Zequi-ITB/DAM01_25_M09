@@ -2,7 +2,7 @@ import { productosJSON } from '../data/camisetas.js';
 
 
 // Comprueba si el id ya existe
-const existsId = (id) => JSON.parse(productosJSON).some(s => s.id === id);
+const existsId = (id) => productosJSON.some(s => s.id === id);
 
 
 export function getAll(req) {
@@ -29,16 +29,18 @@ export function getAll(req) {
 }
 
 export function sortCamisetes(sort, camisetas) {
-const copia = [...camisetas];
+  const copia = [...camisetas];
   switch (sort) {
-    case "precio_asc": return copia.sort((a, b) => a.precio - b.precio)
-    
-    case "precio_desc": return copia.sort((a, b) => b.precio - a.precio);
+    case "precio_asc": return copia.sort((a, b) => Number(a.precioBase) - Number(b.precioBase))
+
+    case "precio_desc": return copia.sort((a, b) => Number(b.precioBase) - Number(a.precioBase));
 
     case "nombre_asc": return copia.sort((a, b) => a.nombre.localeCompare(b.nombre));
 
     case "nombre_desc": return copia.sort((a, b) => b.nombre.localeCompare(a.nombre));
-
+   
+    default:
+      return false;
   }
 }
 

@@ -13,7 +13,7 @@ export function getById(id) {
     return comandas.filter(comanda => comanda.id === id);
 }
 
-const comprovarCantidad = (comanda) => comanda.items.some(camiseta => camiseta.cant < 1);
+const comprovarCantidad = (comanda) => comanda.items.some(camiseta => camiseta.cantidad< 1);
 
 function validateComanda(comandaNew) {
     if (!comandaNew || typeof comandaNew !== "object") return "Body inválido";
@@ -30,23 +30,29 @@ export function create(comandaNew) {
     if (validationMsg) return { error: validationMsg };
 
     //Afegim el preu al final
-    comandaNew.items.forEach(camiseta => {camiseta.precioUnitario = camisetasService.getById(camiseta.camisetaId)[0].precioBase});
+    comandaNew.items.forEach(camiseta => { camiseta.precioUnitario = camisetasService.getById(camiseta.camisetaId)[0].precioBase });
 
+    //Total del ticket
+    let totalPreu = comandaNew.items.reduce((total, camiseta) => total + camiseta.precioUnitario, 0);
 
-    let totalPreu = comandaNew.items.reduce((total, camiseta) => total + camiseta.precioUnitario,0 );
+    //Ticket
+    let ticket = {
+        id: `ORD-000${nextId}`,
+        fecha: new Date().toISOString(),
+        estado: "recibida",
+        items: comandaNew.items,
+        "total": totalPreu
+    }
 
+    //guardem comanda 
     let comanda = {
         id: `ORD-000${nextId}`,
-        fecha: `${Date.now()}`,
-        estado: "recibida",
-        items: [
-            comandaNew.items
-        ],
-        "total": totalPreu
+        comanda: comandaNew
     }
 
 
     incrementarId();
+
     comandas.push(comanda);
-    return { data: comanda };
+    return { data: ticket };
 }
