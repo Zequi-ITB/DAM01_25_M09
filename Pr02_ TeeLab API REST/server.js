@@ -4,7 +4,7 @@ import comandasRouter from './routes/comandas.routes.js'
 import cors from "cors";
 
 const app = express();
-const PORT = 3001;
+
 
 
 // Middlewares globales
@@ -29,7 +29,8 @@ app.use((err, req, res, next) => {
  res.status(500).json({ message: "Error interno" });
 });
 
-app.listen(PORT, () => {
- console.log(`Servidor corriendo en http://localhost:${PORT}/`);
-});
+
+export default app;
+
+
 
