@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script defer src="localStorage.js"></script>
+        <title>9 - LocalStorage</title>
+    </head>
+    <body>
+        <h3>Alumno</h3>
+        <form id="form" novalidate>
+            <label for="nombre">
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    required
+                    minlength="5"
+                    maxlength="50"
+                >
+            </label>
+            <br>
+            <label for="apellidos">
+                <input
+                    type="text"
+                    id="apellidos"
+                    name="apellidos"
+                    required
+                    minlength="5"
+                    maxlength="50"
+                >
+            </label>
+            <br>
+            <label for="fechaNacimiento">
+                <input
+                    type="date"
+                    id="fechaNacimiento"
+                    name="fechaNacimiento"
+                    required
+                    minlength="5"
+                    maxlength="50"
+                >
+            </label>
+            <br/>
+            <label for="curso">
+                <select
+                    id="curso"
+                    name="curso"
+                    required
+                    minlength="5"
+                    maxlength="50"
+                >
+                    <option>DAM</option>
+                    <option>DAWe</option>
+                    <option>DAMv</option>
+                </select>
+            </label>
+            <br/>
+            <button type="button" id="addAlumno">Añadir alumno</button>
+            <br/>
+            <button type="button" id="delLocalStorage">Eliminar LocalStorage</button>
+
+        </form>
+    </body>
+</html>
