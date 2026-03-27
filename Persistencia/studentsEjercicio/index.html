@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Testing - Students & Notas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Gestió de CRUD API</h1>
+
+        <div class="section-wrapper">
+            <div>
+                <div class="card">
+                    <h2>Gestió d'Estudiants</h2>
+
+                    <form id="student-form" onsubmit="event.preventDefault();">
+                        <div class="form-group">
+                            <label for="student-id">ID (ex: A002)</label>
+                            <input type="text" id="student-id" placeholder="ID de l'estudiant">
+                        </div>
+                        <div class="form-group">
+                            <label for="student-nombre">Nom</label>
+                            <input type="text" id="student-nombre" placeholder="Nom complet">
+                        </div>
+                        <div class="form-group">
+                            <label for="student-curso">Curs</label>
+                            <input type="text" id="student-curso" placeholder="ex: 1º DAM">
+                        </div>
+
+                        <div class="button-group">
+                            <button id="btn-create-student">Create</button>
+                            <button id="btn-update-student">Update</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h3>Accions per ID (Estudiant)</h3>
+                    <div class="action-bar">
+                        <input type="text" id="search-student-id" placeholder="ID a buscar/esborrar">
+                    </div>
+                    <div class="button-group">
+                        <button id="btn-get-student-id">Get by ID</button>
+                        <button id="btn-delete-student" class="btn-danger">Delete</button>
+                    </div>
+                    <div id="student-result" class="output-box">Resultat de la cerca...</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Llistat d'Estudiants</h2>
+                    <button id="btn-getall-students" class="btn-auto">Get All (Refresh)</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Curs</th>
+                        </tr>
+                    </thead>
+                    <tbody id="students-table-body">
+                        <tr>
+                            <td colspan="3" class="text-center">Fes click a Get All per carregar les dades</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-wrapper">
+            <div>
+                <div class="card">
+                    <h2>Gestió de Notes</h2>
+
+                    <form id="nota-form" onsubmit="event.preventDefault();">
+                        <div class="form-group">
+                            <label for="nota-id">ID Nota (Buit per Create si és Auto-increment)</label>
+                            <input type="number" id="nota-id" placeholder="Ex: 2">
+                        </div>
+                        <div class="form-group">
+                            <label for="nota-studentid">ID de l'Estudiant</label>
+                            <input type="text" id="nota-studentid" placeholder="Ex: A001">
+                        </div>
+                        <div class="form-group">
+                            <label for="nota-modulo">Mòdul</label>
+                            <input type="text" id="nota-modulo" placeholder="Ex: M09">
+                        </div>
+                        <div class="form-group">
+                            <label for="nota-valor">Nota</label>
+                            <input type="number" step="0.1" id="nota-valor" placeholder="Ex: 7.0">
+                        </div>
+
+                        <div class="button-group">
+                            <button id="btn-create-nota">Create</button>
+                            <button id="btn-update-nota">Update</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h3>Accions per ID (Nota)</h3>
+                    <div class="action-bar">
+                        <input type="number" id="search-nota-id" placeholder="ID a buscar/esborrar">
+                    </div>
+                    <div class="button-group">
+                        <button id="btn-get-nota-id">Get by ID</button>
+                        <button id="btn-delete-nota" class="btn-danger">Delete</button>
+                    </div>
+                    <div id="nota-result" class="output-box">Resultat de la cerca...</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Llistat de Notes</h2>
+                    <button id="btn-getall-notas" class="btn-auto">Get All (Refresh)</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>ID Estudiant</th>
+                            <th>Mòdul</th>
+                            <th>Nota</th>
+                        </tr>
+                    </thead>
+                    <tbody id="notas-table-body">
+                        <tr>
+                            <td colspan="4" class="text-center">Fes click a Get All per carregar les dades</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script src="api.js"></script>
+</body>
+
+</html>

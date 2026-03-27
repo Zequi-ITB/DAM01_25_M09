@@ -8,7 +8,7 @@ window.addEventListener("message", function (event) {
 
 function showConfigModal() {
     // Para pruebas, puedes descomentar la siguiente línea para forzar el popup:
-    // localStorage.removeItem("visited");
+   // localStorage.removeItem("visited");
 
     const visited = localStorage.getItem("visited");
 
