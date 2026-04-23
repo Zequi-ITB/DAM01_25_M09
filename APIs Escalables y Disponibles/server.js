@@ -1,39 +1,8 @@
-import express from 'express';
-import studentsRouter from './routes/students.routes.js';
-import notasRouter from './routes/notas.routes.js'
 import cluster from 'cluster';
 import os from 'os';
-
-const app = express();
-const PORT = 3001;
-
-// Middlewares globales
-app.use(express.json());
-
-// Log mínimo
-app.use((req, res, next) => {
- console.log(req.method, req.url);
- next();
-});
-
-// Rutas
-app.use('/students', studentsRouter);
-app.use('/notas', notasRouter);
+import express from 'express';
 
 
-// Middleware de errores
-app.use((err, req, res, next) => {
- console.error(err.message);
- res.status(500).json({ message: "Error interno" });
-});
-
-
-app.listen(PORT, () => {
- console.log(`Servidor corriendo en http://localhost:${PORT}/`);
-});
-
-
-/*
 const NUM_CPUS = os.cpus().length;
 console.log(`Servidor arrancado con ${NUM_CPUS} núcleos disponibles.`);
 
@@ -43,9 +12,11 @@ if (cluster.isPrimary) {
   console.log(`Master ${process.pid} arrancado — creando ${NUM_CPUS} workers...`);
 
   // Crear un worker por cada núcleo disponible
+  /*
   for (let i = 0; i < NUM_CPUS; i++) {
     cluster.fork();
   }
+    */
 
   // Si un worker muere por cualquier motivo → crear uno nuevo
   cluster.on('exit', (worker, code, signal) => {
@@ -56,15 +27,8 @@ if (cluster.isPrimary) {
   // ── WORKER ────────────────────────────────────────────────────────────────
 } else {
 
-
-
-
-const NUM_CPUS = os.cpus().length;
-console.log(`Servidor arrancado con ${NUM_CPUS} núcleos disponibles.`);
-
-// ── MASTER ────────────────────────────────────────────────────────────────
   const app = express();
-  const PORT = 3011;
+  const PORT = 3001;
 
   // Middlewares globales
   app.use(express.json());
@@ -83,7 +47,6 @@ console.log(`Servidor arrancado con ${NUM_CPUS} núcleos disponibles.`);
        uptime: process.uptime()
      });
    });*/
-   /*
   app.get('/health', async (req, res) => {
     console.log(`[Worker ${process.pid}] Health check recibido.`);
     const checks = {
@@ -93,7 +56,7 @@ console.log(`Servidor arrancado con ${NUM_CPUS} núcleos disponibles.`);
 
     // PAra cuando haya una base de datos, podríamos hacer un ping aquí y añadirlo a los checks:
     // checks.database = await db.ping() ? 'ok' : 'error';
-/*
+
     const todoOk = Object.values(checks).every(v => v === 'ok');
 
     res.status(todoOk ? 200 : 503).json({
@@ -102,24 +65,16 @@ console.log(`Servidor arrancado con ${NUM_CPUS} núcleos disponibles.`);
       uptime: process.uptime()
     });
   });
-  */
 
-  // Rutas — exactamente igual que antes
-  /*
-  app.use('/students', studentsRouter);
-  app.use('/notas', notasRouter);
-*/
+
 
   // Middleware de errores — exactamente igual que antes
-  /*
   app.use((err, req, res, next) => {
     console.error(err.message);
     res.status(500).json({ message: 'Error interno' });
   });
-  */
 
   // Graceful shutdown — cierre limpio cuando el master para este worker
-  /*
   const server = app.listen(PORT, () => {
     console.log(`Worker ${process.pid} escuchando en http://localhost:${PORT}/`);
   });
@@ -132,7 +87,3 @@ console.log(`Servidor arrancado con ${NUM_CPUS} núcleos disponibles.`);
   });
 
 }
-  */
-
-
-
